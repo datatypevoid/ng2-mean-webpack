@@ -1,0 +1,49 @@
+// # Typography
+
+// ## Typography variables
+
+// Set base font size
+$base-font-size: 1rem;
+
+// Determine the base line height which is a ratio multiplied
+// by the base font size.
+$base-line-height : $base-font-size * 1.25;
+
+// Store font weights semantically within a Sass map
+$font-weights : (
+  'thin' : 100,
+  'light' : 300,
+  'normal' : 400,
+  'medium' : 500,
+  'bold' : 700,
+  'ubold' : 900
+);
+
+// Store font stacks semantically within a Sass map
+$font-stacks : (
+
+  'primary' : #{'Roboto', 'Helvetica Neue', sans-serif},
+
+  'secondary' : #{Pacifico, cursive, sans-serif},
+
+  'code' : #{'source code pro', monospace}
+);
+
+// Define a modular type scale
+// Map keys represent the power of the ratio
+// Reference : https://scotch.io/tutorials/aesthetic-sass-3-typography-and-vertical-rhythm
+$type-scale : (
+  -1 : .75rem, // small text
+   0 : 1rem, // body text
+   1 : 1.333rem, // large text
+   2 : 1.777rem // main heading
+);
+
+// Use a multiple of the base line height for each font size, typically
+// closer to—but larger than—the font size.
+$line-heights: (
+  -1 : $base-line-height,
+   0 : $base-line-height,
+   1 : $base-line-height * 2,
+   2 : $base-line-height * 2
+);

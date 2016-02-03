@@ -1,0 +1,19 @@
+// ```
+// _module.scss
+// (c) 2016 David Newman
+// blackshuriken@hotmail.com
+// _module may be freely distributed under the MIT license
+// ```
+
+// */public/sass/base/_module.scss*
+
+// ## Global Import
+
+// This Sass file pulls in all partials for global styles, such as
+// resets, typography, animations, etc.
+
+// Reference: http://sass-guidelin.es/#the-7-1-pattern
+
+// ### Sass Partials
+@import 'animations';
+@import 'typography';

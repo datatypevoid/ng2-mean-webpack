@@ -1,0 +1,31 @@
+// ```
+// main.scss
+// (c) 2016 David Newman
+// blackshuriken@hotmail.com
+// main.scss may be freely distributed under the MIT license
+// ```
+
+// */public/sass/main.scss*
+
+// ##SCSS Import
+
+// This Sass file pulls in all partials for both global
+// variables as well as component styles for use with
+// our Angular component directives
+
+// Reference:
+// http://sass-guidelin.es/#the-7-1-pattern
+// https://scotch.io/tutorials/aesthetic-sass-1-architecture-and-style-organization
+
+// ### Sass Module Partials
+
+@import 'utils/module';
+@import 'vendors/module';
+@import 'base/module';
+@import 'layout/module';
+@import 'components/module';
+@import 'pages/module';
+@import 'themes/module';
+
+// Import _shame partial
+@import 'shame';

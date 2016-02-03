@@ -1,0 +1,22 @@
+// ```
+// _module.scss
+// (c) 2016 David Newman
+// blackshuriken@hotmail.com
+// _module may be freely distributed under the MIT license
+// ```
+
+// */public/sass/layout/_module.scss*
+
+// ## Layout Import
+
+// This Sass file pulls in all partials for larger layout
+// components; e.g. nav, header, footer, etc.
+
+// Reference: http://sass-guidelin.es/#the-7-1-pattern
+
+// ### Sass Partials
+@import 'footer';
+@import 'forms';
+@import 'grid';
+@import 'header';
+@import 'sidebar';

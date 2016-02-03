@@ -1,0 +1,14 @@
+// # Structure
+
+// the CSS component layout/structure, excluding any non-layout
+// rules, such as color
+
+%button {
+  display: inline-block;
+  padding: $button-padding;
+  font-size: $button-font-size;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-width: $button-border-width;
+  border-style: solid;
+}

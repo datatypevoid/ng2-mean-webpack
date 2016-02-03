@@ -1,0 +1,136 @@
+// # Global Utility Functions
+
+// ## Color Utility Functions
+
+// Custom function to reference individual colors from custom Sass map
+// example usage:
+// `
+// .brand-button {
+//
+//     background-color: brand-color('primary');
+//
+//     &:hover {
+//         background-color: brand-color('primary', 'light');
+//     }
+//
+//     &.transparent {
+//         background-color: brand-color('primary',
+//                           $opacity : 'light');
+//     }
+// }`
+
+@function brand-color($name : 'primary',
+                      $variant : $brand-color-key,
+                      $opacity : 1) {
+  $color : null;
+
+  // Get the color spectrum
+  $color-spectrum: map-get($brand-colors, $name);
+
+  // Get the color variant
+  @if $color-spectrum {
+    $color: map-get($color-spectrum, $variant);
+  }
+
+  // Get the alpha setting
+  $alpha: if(type-of($opacity) == 'number', $opacity,
+    map-get($brand-opacity, $opacity));
+
+  // Set the alpha of the color
+  @if $alpha {
+    $color: rgba($color, $alpha);
+  }
+
+  @return $color;
+}
+
+// ## tint/shade interval function
+// for returning the tint/shade of the desired color, to the
+// desired level
+// example usage:
+// `
+// .panel {
+//   background-color: brand-color-level('primary', 2);
+// } `
+
+@function brand-color-level($color-name: 'primary', $level: 0) {
+
+  $color: brand-color($color-name);
+  $color-base: if($level < 0, black, white);
+
+  @return mix($color-base, $color, $level * $color-interval);
+}
+
+// ## opacity level function
+// for adjusting the color based on given `$opacity` level using the
+// `rgba()` function
+// example usage:
+//
+// `$button-transparent-color: brand-color-alpha('primary', 'light');`
+//
+@function brand-color-alpha($name: 'primary', $opacity: 0) {
+
+  $color: brand-color($name);
+
+  // Get the name opacity level, if it exists
+  @if map-key-exists($brand-opacity, $opacity) {
+    $opacity: map-get($brand-opacity, $opacity);
+  }
+
+  // Use rgba() to manipulate the color's alpha level
+  @return rgba($color, $opacity);
+}
+
+// ## typography functions
+
+// Retrive responsive breakpoints based on semantic name
+@function font-weight($key : 'normal') {
+
+  @if map-has-key($font-weights, $key) {
+
+    @return map-get($font-weights, $key);
+  }
+
+  @warn "Unknown `{$key}` requested from $font-weights.";
+
+  @return null;
+}
+
+// Retrive appropriate font-stack based on semantic name
+@function font-stack($key : 'primary') {
+
+  @if map-has-key($font-stacks, $key) {
+
+    @return map-get($font-stacks, $key);
+  }
+
+  @warn "Unknown `{$key}` requested from $font-stacks.";
+
+  @return null;
+}
+
+// Retrieve appropriate type scaling based on semantic name
+@function type-scale($level) {
+
+  @if map-has-key($type-scale, $level) {
+
+    @return map-get($type-scale, $level);
+  }
+
+  @warn "Unknown `{$key}` requested from $type-scale.";
+
+  @return null;
+}
+
+// Retrieve appropriate line-height based on numerical input
+@function line-height($level) {
+
+  @if map-has-key($line-heights, $level) {
+
+    @return map-get($line-heights, $level);
+  }
+
+  @warn "Unknown `{$key}` requested from $line-heights.";
+
+  @return null;
+}

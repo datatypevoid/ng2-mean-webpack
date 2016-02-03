@@ -1,0 +1,30 @@
+<div>
+  <p>
+    <button type="button" class="btn btn-default" (click)="removeDynamic()">
+      Remove last dynamic
+    </button>
+  </p>
+
+  <accordion close-others="true">
+    <accordion-group heading="This is the header" is-open="true">
+      This is the content
+    </accordion-group>
+    <accordion-group [heading]="group.heading" *ngFor="#group of groups">
+      {{group.content}}
+    </accordion-group>
+    <accordion-group heading="Another group" [is-open]="isOpen">
+      More content
+    </accordion-group>
+  </accordion>
+
+  <span x-large>Your Content Here</span>
+
+  <input type="text" [value]="data.value" (input)="data.value = $event.target.value" autofocus>
+  <!--
+    Rather than wiring up two-way data-binding ourselves
+    we can use Angular's [(ngModel)] syntax
+    <input type="text" [(ngModel)]="title.value">
+  -->
+
+  <pre>this.data = {{ data | json }}</pre>
+</div>

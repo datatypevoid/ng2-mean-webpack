@@ -1,0 +1,17 @@
+// ```
+// _module.scss
+// (c) 2016 David Newman
+// blackshuriken@hotmail.com
+// _module may be freely distributed under the MIT license
+// ```
+
+// */public/sass/components/_module.scss*
+
+// ## Component Import
+
+// This Sass file pulls in all partials for self-contained components.
+
+// Reference: http://sass-guidelin.es/#the-7-1-pattern
+
+// ### Sass Partials
+@import 'buttons';

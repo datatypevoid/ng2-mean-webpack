@@ -1,0 +1,19 @@
+// ```
+// _module.scss
+// (c) 2016 David Newman
+// blackshuriken@hotmail.com
+// _module may be freely distributed under the MIT license
+// ```
+
+// */public/sass/pages/_module.scss*
+
+// ## Page-Specific Style Import
+
+// This Sass file pulls in all partials for page-specific styling,
+// if necessary
+
+// Reference: http://sass-guidelin.es/#the-7-1-pattern
+
+// ### Sass Partials
+@import 'contact';
+@import 'home';

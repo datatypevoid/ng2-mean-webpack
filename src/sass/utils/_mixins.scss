@@ -1,0 +1,74 @@
+// # Button Mixins
+// for dynamically generating variations of the component
+@mixin brand-button-theme($color,
+                          $color-text-hover:
+                                brand-color('primary', 'light')) {
+
+  color: $color;
+  border-color: $color;
+  background-color: transparent;
+
+  &:hover {
+
+    color: $color-text-hover;
+    background-color: $color;
+  }
+}
+
+// Responsive breakpoint manager
+// @access public
+// @param {String} $breakpoint - Breakpoint
+// @requires $breakpoints
+@mixin respond-to($breakpoint) {
+
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+
+    $query: if(type-of($raw-query) == 'string',
+      unquote($raw-query), inspect($raw-query));
+
+    @media only screen and #{$query} {
+
+      @content;
+    }
+  } @else {
+
+    @error 'No value is found for `#{$breakpoint}`.'
+           + 'Please make sure it is defined within '
+           + '`$breakpoints` map.';
+  }
+}
+
+// Mixin for setting the font-size and line-height according to
+// a modular type scale.
+// Example:
+//   .heading-1 { @include type-setting(2); }
+//   .heading-2 { @include type-setting(-1); }
+//   .paragraph { @include type-setting(0); }
+@mixin type-setting($level : 0) {
+
+  font-size: type-scale($level);
+  line-height: line-height($level);
+}
+
+@mixin bg-img-full($url) {
+
+  background-image: url($url);
+
+  // Center the image vertically and horizontally
+  background-position: center center;
+
+  background-repeat: no-repeat;
+
+  // Background image is fixed in the viewport so that it doesn't
+  // move when the content's height is greater than the image's
+  // height
+  // Changed to scroll to fix image loading problem
+  background-attachment: scroll;
+
+  // Image will rescale based on its container's size
+  background-size: cover;
+
+  background-color: $color-white;
+}

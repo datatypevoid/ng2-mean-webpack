@@ -1,0 +1,41 @@
+// ###Bootstrap 3 Media Queries
+
+// *Mobile First Method*
+
+// #### *Custom, iPhone Retina*
+@include respond-to('retina') {
+  nav ul {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 60px;
+  }
+  nav li {
+    display: inline;
+  }
+  nav li.active {
+    background-color: lightgray;
+  }
+}
+
+// #### *Extra Small Devices, Phones*
+@include respond-to('xsmall') {
+
+}
+
+// #### *Small Devices, Tablets*
+@include respond-to('small') {
+
+}
+
+
+// #### *Medium Devices, Desktops*
+@include respond-to('medium') {
+
+}
+
+// #### *Large Devices, Wide Screens*
+@include respond-to('large') {
+
+}

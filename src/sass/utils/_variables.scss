@@ -1,0 +1,60 @@
+// # Responsive Breakpoints
+$breakpoints : (
+  'retina' : (min-width : 320px),
+  'xsmall' : (min-width : 480px),
+  'small' : (min-width : 768px),
+  'medium' : (min-width : 992px),
+  'large' : (min-width : 1200px)
+);
+
+// # Colors
+
+// ## Brand Color Variables
+
+// define the base (default) color key
+$brand-color-key: 'base'!default;
+
+// keep color variables organized in a Sass `map`
+// give each color a semantic name describing its role
+$brand-colors: (
+  'primary' : (
+    'base' : #ff9800,
+    'light' : #FFE0B2,
+    'dark' : #f57c00
+  ),
+
+  'accent' : (
+    'base' : #ff5252
+  ),
+
+  'text' : (
+    'base' : #ffe0b2,
+    'dark' : #727272,
+    'darker' : #212121
+  )
+);
+
+// aggregate different semantic levels of opacity used in a
+// project's design with Sass maps
+$brand-opacity: (
+
+  'light': 0.8, // opacity used with lighter colors
+  'dark': 0.4   // opacity used with darker colors
+                // ... et cetera
+);
+
+// set tint/shade interval for use with the opacity level utility
+// function
+$color-interval: 10% !global;
+
+// # Buttons
+
+// ## Button Variables
+// for relating component specific-values to others and preventing
+// magic numbers
+$button-padding: 0.5rem 1rem;
+$button-font-size: type-scale(-1);                // utility function
+$button-bgcolor: brand-color('primary');
+$button-border-width: 1rem;
+$button-color-hover: brand-color('primary', 'light');
+$button-height: line-height(1);

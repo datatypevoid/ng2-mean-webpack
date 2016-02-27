@@ -257,8 +257,8 @@ npm start
 # generate documentation and lint `Sass`
 gulp
 # production
-npm run build:prod !!!NOT READY YET!!!
-npm run server:prod !!!NOT READY YET!!!
+npm run build:prod
+npm run server:prod
 ```
 
 ## Other commands

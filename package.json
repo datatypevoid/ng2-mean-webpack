@@ -34,7 +34,7 @@
     "ci": "npm run e2e && npm run test",
     "docs": "typedoc --options typedoc.json --exclude **/*.spec.ts ./src/",
     "start": "npm run server",
-    "fix:ng2-clean": "node_modules/.bin/rimraf node_modules/angular2/manual_typings node_modules/angular2/typings node_modules/angular2/bundles/typings",
+    "fix:ng2-clean": "node_modules/.bin/rimraf node_modules/angular2/manual_typings node_modules/angular2/ts/manual_typings node_modules/angular2/ts/typings node_modules/angular2/typings node_modules/angular2/bundles/typings",
     "fix:ng2": "npm run fix:ng2-clean",
     "pretypings-install": "npm run fix:ng2",
     "typings-install": "typings install",
@@ -44,7 +44,7 @@
     "postversion": "git push && git push --tags"
   },
   "dependencies": {
-    "angular2": "2.0.0-beta.3",
+    "angular2": "2.0.0-beta.5",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.2",
     "cookie-parser": "^1.4.1",
@@ -58,9 +58,9 @@
     "mongoose": "^4.3.7",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "rxjs": "5.0.0-beta.0",
+    "rxjs": "5.0.0-beta.2",
     "socket.io": "^1.4.5",
-    "zone.js": "0.5.11"
+    "zone.js": "0.5.14"
   },
   "devDependencies": {
     "babel-cli": "^6.4.5",
@@ -111,7 +111,7 @@
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.0",
     "ts-helper": "0.0.1",
-    "ts-loader": "^0.8.0",
+    "ts-loader": "^0.8.1",
     "ts-node": "^0.5.5",
     "tsconfig-lint": "^0.6.0",
     "tsd": "^0.6.5",
@@ -119,10 +119,11 @@
     "tslint-loader": "^2.1.0",
     "typedoc": "^0.3.12",
     "typescript": "^1.8.2",
-    "typings": "^0.6.6",
+    "typings": "^0.6.7",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1",
+    "webpack-load-plugins": "^0.1.2",
     "webpack-md5-hash": "^0.0.5",
     "webpack-validator": "^1.0.0-beta.4"
   },

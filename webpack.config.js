@@ -42,6 +42,7 @@ module.exports = helpers.validate({
 
   module: {
     preLoaders: [
+      // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },
       // TODO(datatypevoid):
       //`exclude: [ helpers.root('node_modules/rxjs') ]`
       //fixed with rxjs 5 beta.3 release
@@ -94,6 +95,11 @@ module.exports = helpers.validate({
   ],
 
   // Other module loader config
+  tslint: {
+    emitErrors: false,
+    failOnHint: false,
+    resourcePath: 'src',
+  },
 
   // our Webpack Development Server config
   devServer: {

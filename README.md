@@ -418,7 +418,7 @@ see [typings/registry](https://github.com/typings/registry)
 * How do I include bootstrap or jQuery?
  * please see issue [#215](https://github.com/AngularClass/angular2-webpack-starter/issues/215) and [#214](https://github.com/AngularClass/angular2-webpack-starter/issues/214#event-511768416) from the [Angular 2 Webpack Starter Kit](https://github.com/AngularClass/angular2-webpack-starter)
 * I'm getting an error about not finding my module that I installed?
- * please see [custom_typings.d.ts](https://github.com/AngularClass/angular2-webpack-starter/blob/master/src/custom_typings.d.ts) from the [Angular 2 Webpack Starter Kit](https://github.com/AngularClass/angular2-webpack-starter)
+ * please see [How to include or create custom type definitions](https://github.com/AngularClass/angular2-webpack-starter/wiki/How-to-include-or-create-custom-type-definitions) and [custom_typings.d.ts](https://github.com/AngularClass/angular2-webpack-starter/blob/master/src/custom_typings.d.ts) from the [Angular 2 Webpack Starter Kit](https://github.com/AngularClass/angular2-webpack-starter)
 * How do I async load a component?
  * the component must have `.async.ts` and require using webpack `loader: () => require('./about/about')('About')`
 

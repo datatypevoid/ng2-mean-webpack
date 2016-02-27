@@ -69,10 +69,8 @@ npm run typings-install
 }
 
 # build code
-npm run build:dev
-
-# start the server
-node server
+# hot reload is thanks to Webpack
+npm start
 ```
 go to [http://0.0.0.0:8080](http://0.0.0.0:8080) or [http://localhost:8080](http://localhost:8080) in your browser
 
@@ -227,8 +225,8 @@ Once you have those, you should install these globals with `npm install --global
 * `npm install` to install all dependencies
 * `typings install` to install necessary typings
 *  create `config.json` ***see below***
-* `npm run build:dev` to build the necessary front-end code
-* `node server` to start the server
+* `npm run build` to build the necessary front-end code
+* `node server` to start the server for the first time
 
 ## config.json
 The `server.conf.js` file is expecting certain `environment` `variables` to be set within `Node`. The `env.conf.js` has functions to check whether the expected `environment` `variables` have been setup before proceeding to start up the rest of the server. You can create a file called `config.json` and store it in the `config` directory that looks something like this:
@@ -249,13 +247,17 @@ The `server.conf.js` file is expecting certain `environment` `variables` to be s
 }
 ```
 ## Running the app
-After you have installed all dependencies and created your `config.json` file, you can now run the app. Run `node server` to start a local server using `node`. The port will be displayed to you as `http://0.0.0.0:8080` (or if you prefer IPv6, if you're using `express` server, then it's `http://[::1]:8080/`).
+After you have installed all dependencies and created your `config.json` file, you can now run the app. Run `npm start` to package all of your front-end files and start up the server using `node`, complete with hot reloading to the browser. The port will be displayed to you as `http://0.0.0.0:8080` (or if you prefer IPv6, if you're using `express` server, then it's `http://[::1]:8080/`).
 
 ### server
 ```bash
 # development
-npm run build:dev
-node server
+// package front-end files with Webpack and hot reload
+// upon any changes
+npm start
+// optionally use `Gulp` in a second terminal to auto
+// generate documentation and lint `Sass`
+gulp
 # production
 npm run build:prod !!!NOT READY YET!!!
 npm run server:prod !!!NOT READY YET!!!
@@ -323,11 +325,11 @@ npm run e2e:live
 ### all in one
 ```bash
 # in one terminal
-npm run watch // Watch and build front-end code
+npm start // watch and build front-end code with hot reload
+          // to the browser
 # in another terminal
 gulp // clear out documentation
      // generate documentation
-     // start server that restarts on file change
      // lint sass
 
 # Contributing

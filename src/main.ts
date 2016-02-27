@@ -9,10 +9,11 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 const ENV_PROVIDERS = [];
 
 if ('production' === process.env.ENV) {
-  enableProdMode();
-// } else {
+    enableProdMode();
+} else {
+
+    ENV_PROVIDERS.push(ELEMENT_PROBE_PROVIDERS);
 }
-  ENV_PROVIDERS.push(ELEMENT_PROBE_PROVIDERS);
 
 /*
  * App Component

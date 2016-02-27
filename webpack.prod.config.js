@@ -103,7 +103,9 @@ module.exports = {
       { test: /\.css$/,   loader: 'raw-loader' },
 
       // support for .html as raw text
-      { test: /\.html$/,  loader: 'raw-loader' }
+      { test: /\.html$/,  loader: 'raw-loader',
+        exclude: [ root('src/index.html') ]
+      }
 
       // if you add a loader include the file extension
     ]
@@ -157,7 +159,7 @@ module.exports = {
       // comments: true,//debug
 
       beautify: false,//prod
-      // disable mangling because of a bug in angular2 beta.1, beta.2, and
+      // disable mangling because of a bug in angular2 beta.1, beta.2 and
       // beta.3
       // TODO(mastertinner): enable mangling as soon as angular2 beta.4
       // is out

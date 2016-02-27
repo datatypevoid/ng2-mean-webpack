@@ -1,7 +1,7 @@
-// @AngularClass
-var path = require('path');
+// @Datatype_void
 
 module.exports = function(config) {
+
   var testWebpackConfig = require('./webpack.test.config.js');
   config.set({
 

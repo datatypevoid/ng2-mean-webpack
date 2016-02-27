@@ -1,24 +1,29 @@
-import {Component} from 'angular2/core';
+import {
+it,
+inject,
+injectAsync,
+describe,
+beforeEachProviders,
+TestComponentBuilder
+} from 'angular2/testing';
 
-/*
- * We're loading this component asynchronously
- * We are using some magic with es6-promise-loader that will wrap the module with a Promise
- * see https://github.com/gdi2290/es6-promise-loader for more info
- */
+import {Component, provide} from 'angular2/core';
 
-console.log('`About` component loaded asynchronously');
+// Load the implementations that should be tested
+import {About} from './about';
 
-@Component({
-  selector: 'about',
-  template: `david.r.niciforovic@gmail.com`
-})
-export class About {
-  constructor() {
+describe('About', () => {
+    // provide our implementations or mocks to the dependency injector
+    beforeEachProviders(() => [
+        About
+    ]);
 
-  }
+    it('should log ngOnInit', inject([About], (about) => {
+        spyOn(console, 'log');
+        expect(console.log).not.toHaveBeenCalled();
 
-  ngOnInit() {
-    console.log('hello `About` component');
-  }
+        about.ngOnInit();
+        expect(console.log).toHaveBeenCalled();
+    }));
 
-}
+});

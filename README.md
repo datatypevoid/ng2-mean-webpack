@@ -48,9 +48,6 @@ cd ng2-mean-webpack
 # install the repo with npm
 npm install
 
-# install TypeScript typings
-npm run typings-install
-
 # create configuration json file for env vars
 # save in `config/` as `config.json`
 {
@@ -69,6 +66,7 @@ npm run typings-install
 }
 
 # build code
+# start server
 # hot reload is thanks to Webpack
 npm start
 ```
@@ -252,11 +250,11 @@ After you have installed all dependencies and created your `config.json` file, y
 ### server
 ```bash
 # development
-// package front-end files with Webpack and hot reload
-// upon any changes
+# package front-end files with Webpack and hot reload
+# upon any changes
 npm start
-// optionally use `Gulp` in a second terminal to auto
-// generate documentation and lint `Sass`
+# optionally use `Gulp` in a second terminal to auto
+# generate documentation and lint `Sass`
 gulp
 # production
 npm run build:prod !!!NOT READY YET!!!

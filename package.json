@@ -34,7 +34,6 @@
     "ci": "npm run e2e && npm run test",
     "docs": "typedoc --options typedoc.json --exclude **/*.spec.ts ./src/",
     "start": "npm run server",
-    "pretypings-install": "npm run fix:ng2",
     "typings-install": "typings install",
     "postinstall": "npm run typings-install",
     "preversion": "npm test",

@@ -114,7 +114,6 @@
     "ts-loader": "^0.8.1",
     "ts-node": "^0.5.5",
     "tsconfig-lint": "^0.6.0",
-    "tsd": "^0.6.5",
     "tslint": "^3.3.0",
     "tslint-loader": "^2.1.0",
     "typedoc": "^0.3.12",

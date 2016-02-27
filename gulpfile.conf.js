@@ -33,11 +33,10 @@ let scssGlob = ['**/*.scss', '!{node_modules,node_modules/**}',
 
 // Create the default task and have it clear out all existing
 // documentation; watch all neccessary files for automatic
-// documentation generation, while also
-// providing a server that restarts upon file changes with
-// `nodemon`, as well as linting all `sass` styles.
-gulp.task('default', ['clean:docs', 'serve:watch',
-                      'watch:docs', 'watch:sass']);
+// documentation generation as well as linting all `sass` styles.
+gulp.task('default', ['clean:docs',
+                      'watch:docs',
+                      'watch:sass']);
 
 // Watch `Sass` files for changes and lint
 gulp.task('watch:sass', () => {

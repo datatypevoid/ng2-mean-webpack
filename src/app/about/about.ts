@@ -9,14 +9,15 @@ import {Component} from 'angular2/core';
 console.log('`About` component loaded asynchronously');
 
 @Component({
-  selector: 'about',
-  template: `david.r.niciforovic@gmail.com`
+    selector: 'about',
+    template: `david.r.niciforovic@gmail.com`
 })
 export class About {
-  constructor() {
+    constructor() {
 
-  }
+    }
 
-  ngOnInit() {
-    console.log('hello `About` component');
-  }
+    ngOnInit() {
+        console.log('hello `About` component');
+    }
+}

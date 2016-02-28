@@ -64,7 +64,7 @@ module.exports = helpers.validate({
       { test: /\.html$/,
         loader: 'raw-loader',
         exclude: [ helpers.root('src/index.html') ]
-      }
+      },
 
       // support for sass imports
       // add CSS rules to your document:
@@ -111,6 +111,5 @@ module.exports = helpers.validate({
   },
   // we need this due to problems with es6-shim
   node: {global: 'window', progress: false, crypto: 'empty', module: false, clearImmediate: false, setImmediate: false}
-};
 
 });

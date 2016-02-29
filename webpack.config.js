@@ -25,7 +25,10 @@ module.exports = helpers.validate({
   // cache: false,
 
   // our angular app
-  entry: { 'polyfills': './src/polyfills.ts', 'main': './src/main.ts' },
+  entry: {
+    'polyfills': './src/polyfills.ts',
+    'main': './src/main.ts'
+  },
 
   // Config for our build files
   output: {

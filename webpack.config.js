@@ -79,6 +79,11 @@ module.exports = helpers.validate({
   },
 
   plugins: [
+    // TODO(datatypevoid): investigate the necessity of these two
+    // following lines
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+
     new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.CommonsChunkPlugin({ name: 'polyfills', filename: 'polyfills.bundle.js', minChunks: Infinity }),
     // static assets
@@ -103,6 +108,13 @@ module.exports = helpers.validate({
 
   // our Webpack Development Server config
   devServer: {
+    // Proxy requests to our express server
+    proxy: {
+        '*': {
+          target: 'http://localhost:3000',
+          secure: false
+        },
+    },
     port: metadata.port,
     host: metadata.host,
     // contentBase: 'src/',

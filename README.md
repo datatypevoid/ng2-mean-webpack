@@ -227,15 +227,15 @@ Once you have those, you should install these globals with `npm install --global
 * `npm install` to install all dependencies
 * `typings install` to install necessary typings
 *  create `config.json` ***see below***
-* `npm run build` to build the necessary front-end code
-* `node server` to start the server for the first time
+* `npm start` to build the necessary front-end code with Webpack+HMR
+* In a new terminal, `node server` to start the server for the first time
 
 ## config.json
 The `server.conf.js` file is expecting certain `environment` `variables` to be set within `Node`. The `env.conf.js` has functions to check whether the expected `environment` `variables` have been setup before proceeding to start up the rest of the server. You can create a file called `config.json` and store it in the `config` directory that looks something like this:
 ```
 {
   "ENV" : "development",
-  "PORT" : 8080,
+  "PORT" : 3000,
   "MONGO_URI" : {
     "DEVELOPMENT" : "mongodb://[username:password@]host[:port]",
     "PRODUCTION" : "mongodb://[username:password@]host[:port]",

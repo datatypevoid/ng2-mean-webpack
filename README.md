@@ -235,6 +235,8 @@ The `server.conf.js` file is expecting certain `environment` `variables` to be s
 ```
 {
   "ENV" : "development",
+  # MAKE SURE PORT IS NOT 8080 OR WHATEVER THE WEBPACK
+  # DEV SERVER PORT IS SET TO
   "PORT" : 3000,
   "MONGO_URI" : {
     "DEVELOPMENT" : "mongodb://[username:password]@host[:port]",

@@ -6,6 +6,8 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 
+var config = require('./config/config.json');
+
 var metadata = {
   title: 'Angular 2 MEAN Webpack Starter Kit by @datatype_void',
   baseUrl: '/',
@@ -114,7 +116,7 @@ module.exports = helpers.validate({
     // Proxy requests to our express server
     proxy: {
         '*': {
-          target: 'http://localhost:3000',
+          target: 'http://localhost:' + config.PORT,
           secure: false
         },
     },

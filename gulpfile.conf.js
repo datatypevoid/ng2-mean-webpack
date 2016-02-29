@@ -164,6 +164,9 @@ gulp.task('watch:docs', () => {
   generateDocs(scssGlob);
 });
 
+// Sugar for `gulp serve:watch`
+gulp.task('serve', ['serve:watch']);
+
 // Configure gulp-nodemon
 // This watches the files belonging to the app for changes
 // and restarts the server whenever a change is detected

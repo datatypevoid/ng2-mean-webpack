@@ -15,11 +15,12 @@
 
 > And always keep the [Angular 2 docs](https://angular.io/docs/ts/latest/) at hand, because the times are always changing
 
-This seed repo serves as an MEAN starter for anyone looking to get a MEAN fullstack app up and running with Angular 2, TypeScript(on the front-end), and ES6/ES7 (on the back-end) fast. Using a [Webpack](http://webpack.github.io/) for building our files and assisting with boilerplate. We're also using Protractor for our end-to-end story and Karma for our unit tests.
+This seed repo serves as an MEAN starter for anyone looking to get a MEAN fullstack app up and running with Angular 2, TypeScript(on the front-end), and ES6/ES7 (on the back-end) fast. Using [Webpack](http://webpack.github.io/) for building our files and assisting with boilerplate. We're also using Protractor for our end-to-end story and Karma for our unit tests.
 * Best practices in file and application organization for Angular 2.
 * Ready to go build system using Webpack for working with TypeScript.
+* Hot module reloading for the front-end à la Webpack.
 * Angular 2 examples that are ready to go when experimenting with Angular 2.
-* A great Angular 2 seed repo for anyone who wants to start their project.
+* A great MEAN seed repo for anyone who wants to start their project.
 * Testing Angular 2 code with Jasmine and Karma.
 * Coverage with Istanbul and Karma
 * End-to-end Angular 2 code using Protractor.
@@ -31,7 +32,7 @@ The rest of the stack features:
 * [Express](https://www.expressjs.com/) ready for ES6/ES7 code through transpiling with [Babel 6](https://babeljs.io/),
 * [Socket.io](https://www.socket.io/) for real time event-based communication.
 * [Mongoose](https://www.mongoosejs.com/) for modeling [MongoDB](https://www.mongodb.org) objects within [NodeJS](https://nodejs.org).
-* Support for [Sass](https://sass-lang.com) CSS preprocessor.
+* Support for the [Sass](https://sass-lang.com) CSS preprocessor.
 
 
 ### Quick start
@@ -52,7 +53,8 @@ npm install
 # save in `config/` as `config.json`
 {
   "ENV" : "development",
-  "PORT" : 8080,
+  # Cannot be 8080 as this conflicts with our Webpack dev server
+  "PORT" : 3000,
   "MONGO_URI" : {
     "DEVELOPMENT" : "mongodb://[username:password@]host[:port]",
     "PRODUCTION" : "mongodb://[username:password@]host[:port]",
@@ -64,10 +66,12 @@ npm install
   # this, but it will certainly suffice
   "SESSION_SECRET" : "355FC4FE9348639B4E4FED1B8E93C"
 }
+# in a separate terminal:
+# start Express server
+gulp serve
 
 # build code
-# start server
-# hot reload is thanks to Webpack
+# start Webpack dev server with hot reload
 npm start
 ```
 go to [http://0.0.0.0:8080](http://0.0.0.0:8080) or [http://localhost:8080](http://localhost:8080) in your browser
@@ -245,7 +249,7 @@ The `server.conf.js` file is expecting certain `environment` `variables` to be s
 }
 ```
 ## Running the app
-After you have installed all dependencies and created your `config.json` file, you can now run the app. Run `npm start` to package all of your front-end files and start up the server using `node`, complete with hot reloading to the browser. The port will be displayed to you as `http://0.0.0.0:8080` (or if you prefer IPv6, if you're using `express` server, then it's `http://[::1]:8080/`).
+After you have installed all dependencies and created your `config.json` file, you can now run the app. First, you must start up the back-end server in a separate terminal using the `gulp serve` command. This will fire up our Express app using `nodemon`, which will watch for file changes and restart our backend when necessary. Next use the `npm start` command in the original terminal to build our front-end with and start our Webpack dev server, complete with hot module reloading to the browser. You can now fire up your favorite web browser and visit the running application at `localhost:8080`!
 
 ### server
 ```bash
@@ -253,15 +257,24 @@ After you have installed all dependencies and created your `config.json` file, y
 # package front-end files with Webpack and hot reload
 # upon any changes
 npm start
-# optionally use `Gulp` in a second terminal to auto
+# use `Gulp` in a second terminal to run the Express
+# app responsible for our back-end
+gulp serve
+# optionally use `Gulp` in a third terminal to auto
 # generate documentation and lint `Sass`
 gulp
+
 # production
 npm run build:prod
 npm run server:prod
 ```
 
 ## Other commands
+
+### start `Express` back-end
+```bash
+gulp serve
+```
 
 ### build documentation
 ```bash
@@ -282,7 +295,7 @@ gulp watch:sass
 ```bash
 # development
 npm run build:dev
-# production !!!NOT READY YET!!!
+# production
 npm run build:prod
 ```
 
@@ -319,16 +332,6 @@ npm run webdriver:start
 # in another terminal
 npm run e2e:live
 ```
-
-### all in one
-```bash
-# in one terminal
-npm start // watch and build front-end code with hot reload
-          // to the browser
-# in another terminal
-gulp // clear out documentation
-     // generate documentation
-     // lint sass
 
 # Contributing
 You can include more examples as components but they must introduce a new concept such as `Home` component (separate folders), and Todo (services). I'll accept pretty much everything so feel free to open a Pull-Request
@@ -434,7 +437,7 @@ enjoy — **Da5id**
 
 <br><br>
 
-> Looking for corporate Angular/MEAN training, want to host us, or Angular/MEAN consulting? blackshuriken@hotmail.com
+> Looking for corporate Angular/MEAN training, want to host us, or Angular/MEAN consulting? david.r.niciforovic@gmail.com
 
 # License
  [MIT](/LICENSE)

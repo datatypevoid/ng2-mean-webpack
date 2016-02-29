@@ -421,7 +421,8 @@ see [typings/registry](https://github.com/typings/registry)
 * I'm getting an error about not finding my module that I installed?
  * please see [How to include or create custom type definitions](https://github.com/AngularClass/angular2-webpack-starter/wiki/How-to-include-or-create-custom-type-definitions) and [custom_typings.d.ts](https://github.com/AngularClass/angular2-webpack-starter/blob/master/src/custom_typings.d.ts) from the [Angular 2 Webpack Starter Kit](https://github.com/AngularClass/angular2-webpack-starter)
 * How do I async load a component?
- * the component must have `.async.ts` and require using webpack `loader: () => require('./about/about')('About')`
+ * { path: '/about', loader: () => require('es6-promise!./about/about')('About') }
+ * Also see [es6-promise-loader](https://github.com/gdi2290/es6-promise-loader)
 
 ## Acknowledgements
 > [AngularClass](https://github.com/AngularClass) for their Angular 2 Webpack repo which served as a starting point for the front-end

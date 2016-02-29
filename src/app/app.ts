@@ -20,6 +20,12 @@ import {FORM_PROVIDERS} from 'angular2/common';
 import {RouterActive} from './directives/router-active';
 import {Home} from './home/home';
 
+// Import NgFor directive
+import {NgFor} from 'angular2/common';
+
+// Import of Todo component
+import {Todo} from './components/todo/todo.component';
+
 
 /*
  * App Component
@@ -29,7 +35,9 @@ import {Home} from './home/home';
   selector: 'app',
   providers: [ ...FORM_PROVIDERS ],
   directives: [ ...ROUTER_DIRECTIVES,
-                RouterActive ],
+                RouterActive,
+                Todo,
+                NgFor],
   pipes: [],
   // Load our main `Sass` file into our `app` `component`
   styleUrls: [require("!style!css!sass!../sass/main.scss")],
@@ -43,6 +51,9 @@ import {Home} from './home/home';
           </li>
           <li router-active>
             <a [routerLink]=" ['Home'] ">Home</a>
+          </li>
+          <li router-active>
+            <a [routerLink]=" ['Todo'] ">Todo</a>
           </li>
           <li router-active>
             <a [routerLink]=" ['About'] ">About</a>
@@ -66,6 +77,7 @@ import {Home} from './home/home';
 @RouteConfig([
   { path: '/', component: Home, name: 'Index' },
   { path: '/home', component: Home, name: 'Home' },
+  { path: '/todo', component: Todo, name: 'Todo' },
   // Async load a component using Webpack's require with
   // es6-promise-loader and webpack `require`
   { path: '/about',

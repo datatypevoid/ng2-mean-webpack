@@ -4,7 +4,9 @@ var webpack = require('webpack');
 var helpers = require('./helpers');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 var ENV = process.env.ENV = process.env.NODE_ENV = 'development';
+var HMR = process.argv.join('').indexOf('hot') > -1;
 
 var config = require('./config/config.json');
 
@@ -13,7 +15,8 @@ var metadata = {
   baseUrl: '/',
   host: 'localhost',
   port: 8080,
-  ENV: ENV
+  ENV: ENV,
+  HMR: HMR
 };
 /*
  * Config
@@ -99,7 +102,8 @@ module.exports = helpers.validate({
     new webpack.DefinePlugin({
       'process.env': {
         'ENV': JSON.stringify(metadata.ENV),
-        'NODE_ENV': JSON.stringify(metadata.ENV)
+        'NODE_ENV': JSON.stringify(metadata.ENV),
+        'HMR': HMR
       }
     })
   ],

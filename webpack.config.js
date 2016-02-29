@@ -115,10 +115,10 @@ module.exports = helpers.validate({
   devServer: {
     // Proxy requests to our express server
     proxy: {
-        '*': {
-          target: 'http://localhost:' + config.PORT,
-          secure: false
-        },
+      '*': {
+        target: 'http://localhost:' + config.PORT,
+        secure: false
+      },
     },
     port: metadata.port,
     host: metadata.host,

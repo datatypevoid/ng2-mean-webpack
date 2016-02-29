@@ -1,4 +1,4 @@
-// @Datatype_void
+// @datatype_void
 
 module.exports = function(config) {
 

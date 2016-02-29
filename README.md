@@ -56,9 +56,9 @@ npm install
   # Cannot be 8080 as this conflicts with our Webpack dev server
   "PORT" : 3000,
   "MONGO_URI" : {
-    "DEVELOPMENT" : "mongodb://[username:password@]host[:port]",
-    "PRODUCTION" : "mongodb://[username:password@]host[:port]",
-    "TEST" : "mongodb://[username:password@]host[:port]"
+    "DEVELOPMENT" : "mongodb://[username:password]@host[:port]",
+    "PRODUCTION" : "mongodb://[username:password]@host[:port]",
+    "TEST" : "mongodb://[username:password]@host[:port]"
   },
   # Generate your own 256-bit WEP key here:
   # http://randomkeygen.com/

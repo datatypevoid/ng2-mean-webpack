@@ -38,7 +38,8 @@ describe('Title', () => {
 
     title.getData();
     expect(console.log).toHaveBeenCalled();
-    expect(title.getData()).toEqual({ value: 'AngularClass' });
+    expect(title.getData())
+      .toEqual({ value: 'Angular 2 MEAN Webpack Starter' });
   }));
 
 });

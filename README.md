@@ -1,3 +1,6 @@
+[![Dependency Status](https://david-dm.org/datatypevoid/ng2-mean-webpack.svg)](https://david-dm.org/datatypevoid/ng2-mean-webpack)
+[![Build Status](https://travis-ci.org/datatypevoid/ng2-mean-webpack.svg?branch=master)](https://travis-ci.org/datatypevoid/ng2-mean-webpack)
+
 # MEAN Stack Development Starter
 
 > A MEAN stack development kit featuring [Angular 2](https://angular.io) ([Router](https://angular.io/docs/js/latest/api/router/), [Forms](https://angular.io/docs/js/latest/api/forms/),

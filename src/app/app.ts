@@ -23,9 +23,11 @@ import {Home} from './home/home';
 // Import NgFor directive
 import {NgFor} from 'angular2/common';
 
-// Import of Todo component
+// Import Todo component
 import {Todo} from './components/todo/todo.component';
 
+// Import Items component
+import {Items} from './components/items/items.component';
 
 /*
  * App Component
@@ -56,6 +58,9 @@ import {Todo} from './components/todo/todo.component';
             <a [routerLink]=" ['Todo'] ">Todo</a>
           </li>
           <li router-active>
+            <a [routerLink]=" ['Items'] ">Redux Example</a>
+          </li>
+          <li router-active>
             <a [routerLink]=" ['About'] ">About</a>
           </li>
         </ul>
@@ -78,6 +83,7 @@ import {Todo} from './components/todo/todo.component';
   { path: '/', component: Home, name: 'Index' },
   { path: '/home', component: Home, name: 'Home' },
   { path: '/todo', component: Todo, name: 'Todo' },
+  { path: '/redux', component: Items, name: 'Items' },
   // Async load a component using Webpack's require with
   // es6-promise-loader and webpack `require`
   { path: '/about',

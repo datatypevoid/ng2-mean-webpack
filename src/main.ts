@@ -6,6 +6,14 @@ import * as browser from 'angular2/platform/browser';
 import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
 
+// Import module to provide an app `store` for the life-cycle of the app
+import {provideStore} from '@ngrx/store';
+
+// Import all of the files necessary for our items component
+import {ItemsService} from './app/components/items/items.service';
+import {items} from './app/components/items/items.reducer';
+import {selectedItem} from './app/components/items/selected-item.reducer';
+
 /*
  * App Environment Providers
  * providers that only live in certain environment
@@ -34,7 +42,14 @@ export function main() {
         ...ENV_PROVIDERS,
         ...HTTP_PROVIDERS,
         ...ROUTER_PROVIDERS,
-        ngCore.provide(LocationStrategy, { useClass: HashLocationStrategy })
+        ngCore.provide(LocationStrategy, { useClass: HashLocationStrategy }),
+        // This is the primary consumer of our app store
+        ItemsService,
+        // Inititialize app store available to entire app
+        // and pass in our reducers.
+        // Notice that we are passing in an object that matches the
+        // `AppStore` interface
+        provideStore({ items, selectedItem })
     ])
         .catch(err => console.error(err));
 }

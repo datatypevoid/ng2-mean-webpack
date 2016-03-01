@@ -37,6 +37,7 @@ import {NgFor} from 'angular2/common';
 export class Home {
   // Set our default values
   data = { value: '' };
+
   // TypeScript public modifiers
   constructor(public title: Title) {
 

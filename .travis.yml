@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - node
+  - "5"
+  - "0.12"
+branches:
+only:
+  - master
+script: npm test
+
+before_install:
+  - 'npm install'

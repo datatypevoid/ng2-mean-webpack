@@ -1,5 +1,9 @@
 [![Dependency Status](https://david-dm.org/datatypevoid/ng2-mean-webpack.svg)](https://david-dm.org/datatypevoid/ng2-mean-webpack)
 [![Build Status](https://travis-ci.org/datatypevoid/ng2-mean-webpack.svg?branch=master)](https://travis-ci.org/datatypevoid/ng2-mean-webpack)
+[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/datatypevoid/ng2-mean-webpack)
+[![Issue Stats](http://issuestats.com/github/datatypevoid/ng2-mean-webpack/badge/pr?style=flat)](http://issuestats.com/github/datatypevoid/ng2-mean-webpack)
+[![Issue Stats](http://issuestats.com/github/datatypevoid/ng2-mean-webpack/badge/issue?style=flat)](http://issuestats.com/github/datatypevoid/ng2-mean-webpack)
+[![Stack Share](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](stackshare.io/datatypevoid/angular-2-mean-webpack-starter)
 
 # MEAN Stack Development Starter
 

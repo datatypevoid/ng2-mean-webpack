@@ -7,6 +7,3 @@ branches:
 only:
   - master
 script: npm test
-
-before_install:
-  - 'npm install'

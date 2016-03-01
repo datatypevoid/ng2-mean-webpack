@@ -58,7 +58,7 @@ import {Items} from './components/items/items.component';
             <a [routerLink]=" ['Todo'] ">Todo</a>
           </li>
           <li router-active>
-            <a [routerLink]=" ['Items'] ">Redux Example</a>
+            <a [routerLink]=" ['Items'] ">NG2 Redux</a>
           </li>
           <li router-active>
             <a [routerLink]=" ['About'] ">About</a>

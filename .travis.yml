@@ -7,3 +7,5 @@ branches:
 only:
   - master
 script: npm test
+notifications:
+  slack: vulgardisplayofpower:9AUkQRr7xUiHU2mznPrE4u4Q

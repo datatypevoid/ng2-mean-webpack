@@ -10,6 +10,7 @@
 export interface Recipe {
   _id: number;
   tags: string[];
+  title: string,
   description: string;
   ratings: number;
   creator: string;

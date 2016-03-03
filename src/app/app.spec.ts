@@ -16,7 +16,7 @@ describe('App', () => {
   ]);
 
   it('should have a url', inject([ App ], (app) => {
-    expect(app.url).toEqual('https://twitter.com/AngularClass');
+    expect(app.url).toEqual('https://twitter.com/datatype_void');
   }));
 
 });

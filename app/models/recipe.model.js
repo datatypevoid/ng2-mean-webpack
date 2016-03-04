@@ -21,7 +21,19 @@ let recipeSchema = new mongoose.Schema({
   rating: { type: Number},
   creator: { type: String},
   description: { type : String },
-  ingredients: { type: Array },
+  ingredients: [{
+    amount: {
+      type: String
+    },
+
+    unit: {
+      type: String
+    },
+
+    name: {
+      type: String
+    }
+  }],
   directions: { type: Array }
 });
 

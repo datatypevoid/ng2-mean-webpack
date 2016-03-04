@@ -71,14 +71,18 @@ import {Rating} from './rating.component';
           <div>
             <label>Ingredients</label>
             <button (click)="newIngredient()">
-                Add an Ingredient
+                Add an Ingredient <i class="glyphicon glyphicon-plus"></i>
             </button>
             <div *ngFor="#ingredient of selectedRecipe.ingredients">
+              <input [(ngModel)]="ingredient.amount"
+                placeholder="Amount?" type="text">
+              <input [(ngModel)]="ingredient.unit"
+                placeholder="Units?" type="text">
               <input [(ngModel)]="ingredient.name"
-                placeholder="Enter an ingredient" type="text">
-              <button (click)="deleteIngredient(ingredient)">
-                X
-              </button>
+                placeholder="Name?" type="text">
+              <i (click)="deleteIngredient(ingredient)"
+                class="glyphicon glyphicon-remove">
+              </i>
             </div>
           </div>
           <div>
@@ -145,6 +149,8 @@ export class RecipeDetails {
   // `selectedRecipe`
   newIngredient() {
     this.selectedRecipe.ingredients.push({
+      amount: '',
+      unit: '',
       name: ''
     });
   }

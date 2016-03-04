@@ -42,7 +42,7 @@ import {Rating} from './rating.component';
     </div>
     <ul>
       <li *ngFor="#ingredient of recipe.ingredients">
-        {{ ingredient.name }}
+        {{ ingredient.amount }} {{ ingredient.unit}} {{ ingredient.name }}
       </li>
     </ul>
     <ol>

@@ -13,6 +13,8 @@ import {RecipeService} from './recipe.service';
 import {Recipe} from './recipes.reducer';
 import {AppStore} from '../../app.store';
 
+import {Rating} from './rating.component';
+
 @Component({
   selector: 'recipe-list',
   template: `
@@ -29,6 +31,7 @@ import {AppStore} from '../../app.store';
       </li>
     </ul>
     <div>
+      <rating [rate]="recipe.rating"></rating>
       {{recipe.rating}}
     </div>
     <div>
@@ -53,7 +56,8 @@ import {AppStore} from '../../app.store';
       </button>
     </div>
   </div>
-  `
+  `,
+  directives: [Rating]
 })
 export class RecipeList {
   // The `recipe` component hands off `recipes` and `selectedrecipe`

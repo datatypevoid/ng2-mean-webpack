@@ -21,6 +21,8 @@ import {RecipeService} from './recipe.service';
 import {Recipe} from './recipes.reducer';
 import {AppStore} from '../../app.store';
 
+import {Rating} from './rating.component';
+
 @Component({
   selector: 'recipe-detail',
   template: `
@@ -56,6 +58,8 @@ import {AppStore} from '../../app.store';
           </div>
           <div>
             <label>Rating</label>
+            <rating [rate]="selectedRecipe.rating"
+              (updateRate)="onUpdate($event)"></rating>
             <input [(ngModel)]="selectedRecipe.rating"
               placeholder="Enter a rating" type="text">
           </div>
@@ -101,7 +105,8 @@ import {AppStore} from '../../app.store';
         </button>
     </div>
   </div>
-  `
+  `,
+  directives: [Rating]
 })
 export class RecipeDetails {
 
@@ -150,6 +155,11 @@ export class RecipeDetails {
     this.selectedRecipe.directions.push({
       step: ''
     });
+  }
+
+  onUpdate(value) {
+
+    this.selectedRecipe.rating = value;
   }
 
   deleteTag(tag) {

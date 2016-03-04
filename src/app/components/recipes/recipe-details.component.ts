@@ -122,13 +122,14 @@ export class RecipeDetails {
   originalTitle: string;
   selectedRecipe: Recipe;
 
-  constructor() {
-  }
-
   // Allow the user to save/delete an item or cancel the
   // operation. Flow events up from here.
   @Output() saved = new EventEmitter();
   @Output() cancelled = new EventEmitter();
+
+  constructor() {
+
+  }
 
   // Whenever the user needs to add a new `tag`, push an
   // empty `tag` object to the `tags` array on the

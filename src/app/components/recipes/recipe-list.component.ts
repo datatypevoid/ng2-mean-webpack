@@ -26,7 +26,7 @@ import {Rating} from './rating.component';
     <ul class="list-inline">
       <li *ngFor="#tag of recipe.tags">
         <span class="label label-warning">
-          {{tag.name}}
+          #{{tag.name}}
         </span>
       </li>
     </ul>

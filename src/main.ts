@@ -9,10 +9,16 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 // Import module to provide an app `store` for the life-cycle of the app
 import {provideStore} from '@ngrx/store';
 
-// Import all of the files necessary for our items component
+// Import all of the files necessary for our `items` component
 import {ItemsService} from './app/components/items/items.service';
 import {items} from './app/components/items/items.reducer';
 import {selectedItem} from './app/components/items/selected-item.reducer';
+
+// Import all of the files necessary for our `recipes` component
+import {RecipeService} from './app/components/recipes/recipe.service';
+import {recipes} from './app/components/recipes/recipes.reducer';
+import {selectedRecipe}
+  from './app/components/recipes/selected-recipe.reducer';
 
 /*
  * App Environment Providers
@@ -43,13 +49,15 @@ export function main() {
         ...HTTP_PROVIDERS,
         ...ROUTER_PROVIDERS,
         ngCore.provide(LocationStrategy, { useClass: HashLocationStrategy }),
-        // This is the primary consumer of our app store
+        // These are the primary consumers of our app store
         ItemsService,
+        RecipeService,
         // Inititialize app store available to entire app
         // and pass in our reducers.
         // Notice that we are passing in an object that matches the
         // `AppStore` interface
-        provideStore({ items, selectedItem })
+        provideStore({ items, selectedItem,
+                       recipes, selectedRecipe })
     ])
         .catch(err => console.error(err));
 }

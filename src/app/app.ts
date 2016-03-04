@@ -29,6 +29,9 @@ import {Todo} from './components/todo/todo.component';
 // Import Items component
 import {Items} from './components/items/items.component';
 
+// Import Recipes component
+import {Recipes} from './components/recipes/recipes.component';
+
 /*
  * App Component
  * Top Level Component
@@ -58,7 +61,7 @@ import {Items} from './components/items/items.component';
             <a [routerLink]=" ['Todo'] ">Todo</a>
           </li>
           <li router-active>
-            <a [routerLink]=" ['Items'] ">NG2 Redux</a>
+            <a [routerLink]=" ['Recipes'] ">NG2 Redux</a>
           </li>
           <li router-active>
             <a [routerLink]=" ['About'] ">About</a>
@@ -83,7 +86,7 @@ import {Items} from './components/items/items.component';
   { path: '/', component: Home, name: 'Index' },
   { path: '/home', component: Home, name: 'Home' },
   { path: '/todo', component: Todo, name: 'Todo' },
-  { path: '/redux', component: Items, name: 'Items' },
+  { path: '/redux', component: Recipes, name: 'Recipes' },
   // Async load a component using Webpack's require with
   // es6-promise-loader and webpack `require`
   { path: '/about',

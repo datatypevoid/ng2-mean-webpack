@@ -1,3 +1,12 @@
+// ```
+// recipes.component.js
+// (c) 2016 David Newman
+// blackshuriken@hotmail.com
+// recipes.component.js may be freely distributed under the MIT license
+// ```
+
+// # Recipes Component
+
 import {Component,
   Input,
   Output,
@@ -48,7 +57,7 @@ export class Recipes {
     // Bind the `selectedRecipe` observable from the store
     this.selectedRecipe = store.select('selectedRecipe');
 
-    this.selectedRecipe.subscribe(v = console.log(v));
+    this.selectedRecipe.subscribe(v => console.log(v));
 
     // `recipeService.loadRecipes` dispatches the `ADD_RECIPES` event
     // to our store which in turn updates the `recipes` collection
@@ -77,7 +86,7 @@ export class Recipes {
       tags: [],
       title: '',
       description: '',
-      ratings: null,
+      rating: null,
       creator: '',
       ingredients: [],
       directions: []

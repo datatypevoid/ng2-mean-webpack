@@ -14,11 +14,14 @@
 // Load our API routes for user authentication
 import authRoutes from './routes/_authentication.router.js';
 
-// Load our API routes for the todo component
+// Load our API routes for the `todo` component
 import todoRoutes from './routes/_todo.router.js';
 
-// Load our API routes for the item component
+// Load our API routes for the `item` component
 import itemRoutes from './routes/_item.router.js';
+
+// Load our API routes for the `recipe` component
+import recipeRoutes from './routes/_recipe.router.js';
 
 export default (app, router, passport) => {
 
@@ -68,6 +71,8 @@ export default (app, router, passport) => {
 	todoRoutes(app, router);
 
 	itemRoutes(app, router);
+
+	recipeRoutes(app, router);
 
 	// All of our routes will be prefixed with /api
 	app.use('/api', router);

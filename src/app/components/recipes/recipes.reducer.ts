@@ -9,13 +9,13 @@
 
 export interface Recipe {
   _id: number;
-  tags: string[];
-  title: string,
+  tags;
+  title: string;
   description: string;
-  ratings: number;
+  rating: number;
   creator: string;
-  ingredients: string[];
-  directions: string[];
+  ingredients;
+  directions;
 };
 
 // A traditional `reducer` is a function which takes a `state`

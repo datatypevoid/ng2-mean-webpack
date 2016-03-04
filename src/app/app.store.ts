@@ -2,6 +2,7 @@
 
 // Import our `Item` interface
 import {Item} from './components/items/items.reducer';
+import {Recipe} from './components/recipes/recipes.reducer';
 
 // We are dealing with a single object that has:
 //   * An `items` collection
@@ -16,4 +17,7 @@ export interface AppStore {
     // to accomodate the updated model
     //
     // . . .
+
+    recipes: Recipe[];
+    selectedRecipe: Recipe;
 };

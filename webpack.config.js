@@ -6,7 +6,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var ENV = process.env.ENV = process.env.NODE_ENV = 'development';
-var HMR = process.argv.join('').indexOf('hot') > -1;
+var HMR = helpers.hasProcessFlag('hot');
 
 var config = require('./config/config.json');
 
@@ -21,13 +21,10 @@ var metadata = {
 /*
  * Config
  */
-module.exports = helpers.validate({
+module.exports = helpers.defaults({
   // static data for index.html
   metadata: metadata,
-  // for faster builds use 'eval'
-  devtool: 'source-map',
-  debug: true,
-  // cache: false,
+  // devtool: 'eval' // for faster builds use 'eval'
 
   // our angular app
   entry: {
@@ -37,10 +34,7 @@ module.exports = helpers.validate({
 
   // Config for our build files
   output: {
-    path: helpers.root('dist'),
-    filename: '[name].bundle.js',
-    sourceMapFilename: '[name].map',
-    chunkFilename: '[id].chunk.js'
+    path: helpers.root('dist')
   },
 
 
@@ -109,11 +103,6 @@ module.exports = helpers.validate({
   ],
 
   // Other module loader config
-  tslint: {
-    emitErrors: false,
-    failOnHint: false,
-    resourcePath: 'src',
-  },
 
   // our Webpack Development Server config
   devServer: {
@@ -125,12 +114,6 @@ module.exports = helpers.validate({
       },
     },
     port: metadata.port,
-    host: metadata.host,
-    // contentBase: 'src/',
-    historyApiFallback: true,
-    watchOptions: { aggregateTimeout: 300, poll: 1000 }
-  },
-  // we need this due to problems with es6-shim
-  node: {global: 'window', progress: false, crypto: 'empty', module: false, clearImmediate: false, setImmediate: false}
-
+    host: metadata.host
+  }
 });

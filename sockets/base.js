@@ -1,4 +1,4 @@
-// ``` 
+// ```
 // base.js
 // (c) 2015 David Newman
 // blackshuriken@hotmail.com
@@ -8,18 +8,18 @@
 // *base.js*
 
 // This file contains the most basic functionality for server Socket.io
-// functionality. 
+// functionality.
 
 export default (io) => {
 
-	io.sockets.on('connect', (socket) => {
+  io.sockets.on('connect', (socket) => {
 
-		console.log('a user connected');
+    console.log('a user connected');
 
-		socket.on('disconnect', () => {
+    socket.on('disconnect', () => {
 
-			console.log('a user disconnected');
-		});
-	});
+      console.log('a user disconnected');
+    });
+  });
 
 };

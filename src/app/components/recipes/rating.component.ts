@@ -18,12 +18,9 @@ import {Component,
     <span tabindex="0">
       <template ngFor [ngForOf]="range" #index="index">
         <span class="sr-only">({{ index < rate ? '*' : ' ' }})</span>
-        <i *ngIf="interactive === true" class="glyphicon"
+        <i class="glyphicon"
           [ngClass]="index < rate ? 'glyphicon-star' : 'glyphicon-star-empty'"
           (click)="update(index + 1)">
-        </i>
-        <i *ngIf="interactive === false" class="glyphicon"
-          [ngClass]="index < rate ? 'glyphicon-star' : 'glyphicon-star-empty'">
         </i>
       </template>
     </span>
@@ -43,10 +40,15 @@ export class Rating {
 
   update(value) {
 
-    this.rate = value;
-    // push a new value every time we click on a star
-    // this is thanks to the fact that the `NG2` `EventEmitter`
-    // is using `Rx` thus this is an `Observable`
-    this.updateRate.next(value);
+    if (this.interactive) {
+
+      this.rate = value;
+      // push a new value every time we click on a star
+      // this is thanks to the fact that the `NG2` `EventEmitter`
+      // is using `Rx` thus this is an `Observable`
+      this.updateRate.next(value);
+    } else {
+      console.log('This rating component is not interactive.');
+    }
   }
 }

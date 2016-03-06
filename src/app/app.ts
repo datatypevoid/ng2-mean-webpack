@@ -26,9 +26,6 @@ import {NgFor} from 'angular2/common';
 // Import Todo component
 import {Todo} from './components/todo/todo.component';
 
-// Import Items component
-import {Items} from './components/items/items.component';
-
 // Import Recipes component
 import {Recipes} from './components/recipes/recipes.component';
 
@@ -45,7 +42,7 @@ import {Recipes} from './components/recipes/recipes.component';
                 NgFor],
   pipes: [],
   // Load our main `Sass` file into our `app` `component`
-  styleUrls: [require("!style!css!sass!../sass/main.scss")],
+  styleUrls: [require('!style!css!sass!../sass/main.scss')],
   template: `
     <header>
       <nav>

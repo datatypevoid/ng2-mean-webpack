@@ -1,23 +1,18 @@
-// Reference: http://onehungrymind.com/build-better-angular-2-application-redux-ngrx/
-
-// Import our `Item` interface
-import {Item} from './components/items/items.reducer';
+// Import our `Recipe` interface
 import {Recipe} from './components/recipes/recipes.reducer';
 
 // We are dealing with a single object that has:
-//   * An `items` collection
-//   * A `selectedItem` property holding a single `Item`
+//   * An `recipes` collection
+//   * A `selectedRecipe` property holding a single `Recipe`
 export interface AppStore {
 
-    items: Item[];
-    selectedItem: Item;
+    recipes: Recipe[];
+    selectedRecipe: Recipe;
 
     // If ever you were to desire more functionality, you
     // could expand the `store` with new `key, value` pairs
     // to accomodate the updated model
     //
     // . . .
-
-    recipes: Recipe[];
-    selectedRecipe: Recipe;
+    //
 };

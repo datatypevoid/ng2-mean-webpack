@@ -12,21 +12,21 @@ import {NgClass} from 'angular2/common';
   template: '<ng-content></ng-content>'
 })
 export class Accordion {
-  private groups:Array<AccordionGroup> = [];
+  private groups: Array<AccordionGroup> = [];
 
-  addGroup(group:AccordionGroup): void {
+  addGroup(group: AccordionGroup): void {
     this.groups.push(group);
   }
 
-  closeOthers(openGroup:AccordionGroup): void {
-    this.groups.forEach((group:AccordionGroup) => {
+  closeOthers(openGroup: AccordionGroup): void {
+    this.groups.forEach((group: AccordionGroup) => {
       if (group !== openGroup) {
         group.isOpen = false;
       }
     });
   }
 
-  removeGroup(group:AccordionGroup): void {
+  removeGroup(group: AccordionGroup): void {
     const index = this.groups.indexOf(group);
     if (index !== -1) {
       this.groups.splice(index, 1);
@@ -58,9 +58,9 @@ export class Accordion {
   directives: [NgClass]
 })
 export class AccordionGroup {
-  private _isOpen:boolean = false;
+  private _isOpen: boolean = false;
 
-  constructor(private accordion:Accordion) {
+  constructor(private accordion: Accordion) {
     this.accordion.addGroup(this);
   }
 
@@ -77,7 +77,7 @@ export class AccordionGroup {
     return this._isOpen;
   }
 
-  public set isOpen(value:boolean){
+  public set isOpen(value: boolean){
     this._isOpen = value;
     if (value) {
       this.accordion.closeOthers(this);

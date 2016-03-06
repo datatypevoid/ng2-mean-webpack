@@ -34,7 +34,7 @@ export class Rating {
 
   @Output() updateRate = new EventEmitter();
 
-  private range:Array<number> = [1,2,3,4,5]
+  private range: Array<number> = [1, 2, 3, 4, 5];
 
   update(value) {
 

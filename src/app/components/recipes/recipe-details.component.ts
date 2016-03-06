@@ -114,6 +114,9 @@ import {Rating} from './rating.component';
 })
 export class RecipeDetails {
 
+  originalTitle: string;
+  selectedRecipe: Recipe;
+
   // Assign our `recipe` to a locally scoped property
   // Perform additional logic on every update via ES6 setter
   // Create a copy of `_recipe` and assign it to `this.selectedRecipe`
@@ -122,9 +125,11 @@ export class RecipeDetails {
 
     if (value) this.originalTitle = value.title;
     this.selectedRecipe = Object.assign({}, value);
+
+    // DEBUG
+    console.log('this.selectedRecipe: ');
+    console.log(this.selectedRecipe);
   }
-  originalTitle: string;
-  selectedRecipe: Recipe;
 
   // Allow the user to save/delete an item or cancel the
   // operation. Flow events up from here.
@@ -139,6 +144,11 @@ export class RecipeDetails {
   // empty `tag` object to the `tags` array on the
   // `selectedRecipe`
   newTag() {
+    // Check to see if the `tags` array exists before
+    // attempting to push a `tag` to it
+    if (!this.selectedRecipe.tags)
+      this.selectedRecipe.tags = [];
+
     this.selectedRecipe.tags.push({
       name: ''
     });
@@ -148,6 +158,11 @@ export class RecipeDetails {
   // empty `ingredient` object to the `ingredient` array on the
   // `selectedRecipe`
   newIngredient() {
+    // Check to see if the `ingredients` array exists before
+    // attempting to push an `ingredient` to it
+    if (!this.selectedRecipe.ingredients)
+      this.selectedRecipe.ingredients = [];
+
     this.selectedRecipe.ingredients.push({
       amount: '',
       unit: '',
@@ -159,6 +174,11 @@ export class RecipeDetails {
   // empty `direction` object to the `direction` array on the
   // `selectedRecipe`
   newDirection() {
+    // Check to see if the `directions` array exists before
+    // attempting to push a `direction` to it
+    if (!this.selectedRecipe.directions)
+      this.selectedRecipe.directions = [];
+
     this.selectedRecipe.directions.push({
       step: ''
     });
@@ -174,7 +194,7 @@ export class RecipeDetails {
     for (let i = 0; i < this.selectedRecipe.tags.length; i++) {
       // if the `tag` at the current index matches that of the one
       // the user is trying to delete
-      if(this.selectedRecipe.tags[i] == tag) {
+      if (this.selectedRecipe.tags[i] === tag) {
         // delete the `tag` at the current index
         this.selectedRecipe.tags.splice(i, 1);
       }
@@ -186,7 +206,7 @@ export class RecipeDetails {
     for (let i = 0; i < this.selectedRecipe.ingredients.length; i++) {
       // if the `ingredient` at the current index matches that of the one
       // the user is trying to delete
-      if (this.selectedRecipe.ingredients[i] == ingredient) {
+      if (this.selectedRecipe.ingredients[i] === ingredient) {
         // delete the `ingredient` at the current index
         this.selectedRecipe.ingredients.splice(i, 1);
       }
@@ -198,7 +218,7 @@ export class RecipeDetails {
     for (let i = 0; i < this.selectedRecipe.directions.length; i++) {
       // if the `direction` at the current index matches that of the one
       // the user is trying to delete
-      if (this.selectedRecipe.directions[i] == step) {
+      if (this.selectedRecipe.directions[i] === step) {
         // delete the `direction` at the current index
         this.selectedRecipe.directions.splice(i, 1);
       }

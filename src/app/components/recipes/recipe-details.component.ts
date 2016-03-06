@@ -58,7 +58,7 @@ import {Rating} from './rating.component';
           </div>
           <div>
             <label>Rating</label>
-            <rating [rate]="selectedRecipe.rating"
+            <rating [interactive]="true" [rate]="selectedRecipe.rating"
               (updateRate)="onUpdate($event)"></rating>
             <input [(ngModel)]="selectedRecipe.rating"
               placeholder="Enter a rating" type="text">

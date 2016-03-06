@@ -31,7 +31,7 @@ import {Rating} from './rating.component';
       </li>
     </ul>
     <div>
-      <rating [rate]="recipe.rating"></rating>
+      <rating [interactive]="false" [rate]="recipe.rating"></rating>
       {{recipe.rating}}
     </div>
     <div>

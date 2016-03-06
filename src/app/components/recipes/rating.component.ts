@@ -40,6 +40,7 @@ export class Rating {
 
   update(value) {
 
+    // Check to see if this component should be interactive or not
     if (this.interactive) {
 
       this.rate = value;

@@ -30,6 +30,7 @@ export interface Recipe {
 // smoothly
 export const recipes = (state: any = [], {type, payload}) => {
 
+  // DEBUG
   console.log('Recipes reducer hit! type: ');
   console.log(type);
   console.log('payload: ');
@@ -55,8 +56,6 @@ export const recipes = (state: any = [], {type, payload}) => {
     case 'UPDATE_RECIPE':
       return state.map(recipe => {
 
-        console.log(recipe);
-
         return recipe._id === payload._id
           ? Object.assign({}, recipe, payload) : recipe;
       });
@@ -66,8 +65,6 @@ export const recipes = (state: any = [], {type, payload}) => {
     case 'DELETE_RECIPE':
 
       return state.filter(recipe => {
-
-        console.log(recipe);
 
         return recipe._id !== payload._id;
       });

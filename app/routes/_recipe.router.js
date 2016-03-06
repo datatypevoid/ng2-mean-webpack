@@ -37,7 +37,7 @@ export default (app, router) => {
 
       Recipe.create({
 
-        title : req.body.name,
+        title : req.body.title,
 
         tags : req.body.tags,
 

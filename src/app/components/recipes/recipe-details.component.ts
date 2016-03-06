@@ -131,7 +131,7 @@ export class RecipeDetails {
     console.log(this.selectedRecipe);
   }
 
-  // Allow the user to save/delete an item or cancel the
+  // Allow the user to save/delete a `recipe or cancel the
   // operation. Flow events up from here.
   @Output() saved = new EventEmitter();
   @Output() cancelled = new EventEmitter();
@@ -144,48 +144,62 @@ export class RecipeDetails {
   // empty `tag` object to the `tags` array on the
   // `selectedRecipe`
   newTag() {
+
+    // blank `tag` object
+    let tag = {
+      name: ''
+    };
+
     // Check to see if the `tags` array exists before
     // attempting to push a `tag` to it
     if (!this.selectedRecipe.tags)
       this.selectedRecipe.tags = [];
 
-    this.selectedRecipe.tags.push({
-      name: ''
-    });
+    this.selectedRecipe.tags.push(tag);
   }
 
   // Whenever the user needs to add a new `ingredient`, push an
   // empty `ingredient` object to the `ingredient` array on the
   // `selectedRecipe`
   newIngredient() {
+
+    // blank `ingredient` object
+    let ingredient = {
+      amount: '',
+      unit: '',
+      name: ''
+    };
+
     // Check to see if the `ingredients` array exists before
     // attempting to push an `ingredient` to it
     if (!this.selectedRecipe.ingredients)
       this.selectedRecipe.ingredients = [];
 
-    this.selectedRecipe.ingredients.push({
-      amount: '',
-      unit: '',
-      name: ''
-    });
+    this.selectedRecipe.ingredients.push(ingredient);
   }
 
   // Whenever the user needs to add a new `direction`, push an
   // empty `direction` object to the `direction` array on the
   // `selectedRecipe`
   newDirection() {
+
+    // blank `direction` object
+    let direction = {
+      step: ''
+    };
+
     // Check to see if the `directions` array exists before
     // attempting to push a `direction` to it
     if (!this.selectedRecipe.directions)
       this.selectedRecipe.directions = [];
 
-    this.selectedRecipe.directions.push({
-      step: ''
-    });
+    this.selectedRecipe.directions.push(direction);
   }
 
   onUpdate(value) {
 
+    // Set the value of the selected recipe's rating to the
+    // value passed up from the `rating` component
     this.selectedRecipe.rating = value;
   }
 

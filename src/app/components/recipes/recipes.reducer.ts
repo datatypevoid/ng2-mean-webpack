@@ -9,13 +9,13 @@
 
 export interface Recipe {
   _id: number;
-  tags;
+  tags: Array<Object>;
   title: string;
   description: string;
   rating: number;
   creator: string;
-  ingredients;
-  directions;
+  ingredients: Array<Object>;
+  directions: Array<Object>;
 };
 
 // A traditional `reducer` is a function which takes a `state`
@@ -57,9 +57,9 @@ export const recipes = (state: any = [], {type, payload}) => {
 
         console.log(recipe);
 
-        return recipe._id == payload._id
-          ? Object.assign({}, recipe, payload) : recipe
-      })
+        return recipe._id === payload._id
+          ? Object.assign({}, recipe, payload) : recipe;
+      });
 
     // `DELETE_RECIPE` returns a new array by filtering out the
     // `recipe` that we want to delete
@@ -70,7 +70,7 @@ export const recipes = (state: any = [], {type, payload}) => {
         console.log(recipe);
 
         return recipe._id !== payload._id;
-      })
+      });
 
     default:
       return state;

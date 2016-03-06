@@ -49,6 +49,7 @@ export class Rating {
       // is using `Rx` thus this is an `Observable`
       this.updateRate.next(value);
     } else {
+      // DEBUG
       console.log('This rating component is not interactive.');
     }
   }

@@ -1,4 +1,11 @@
-// # Items List
+// ```
+// recipe-list.component.js
+// (c) 2016 David Newman
+// blackshuriken@hotmail.com
+// recipe-list.component.js may be freely distributed under the MIT license
+// ```
+
+// # Recipe List
 
 import {Component,
   Input,
@@ -62,10 +69,10 @@ import {Rating} from './rating.component';
 export class RecipeList {
   // The `recipe` component hands off `recipes` and `selectedrecipe`
   // via property bindings to its child components
-  // Here we pick up the items collection by annotating our local
+  // Here we pick up the `recipes` collection by annotating our local
   // `recipes` property with `@Input()`
   @Input() recipes: Recipe[];
-  // Two event outputs for when an item is selected or deleted
+  // Two event outputs for when a recipe is selected or deleted
   @Output() selected = new EventEmitter();
   @Output() deleted = new EventEmitter();
 }

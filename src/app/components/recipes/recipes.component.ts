@@ -57,6 +57,7 @@ export class Recipes {
     // Bind the `selectedRecipe` observable from the store
     this.selectedRecipe = store.select('selectedRecipe');
 
+    // DEBUG
     this.selectedRecipe.subscribe(v => console.log(v));
 
     // `recipeService.loadRecipes` dispatches the `ADD_RECIPES` event
@@ -70,7 +71,7 @@ export class Recipes {
 
       type: 'SELECT_RECIPE',
       payload: recipe
-    })
+    });
   }
 
   deleteRecipe(recipe: Recipe) {

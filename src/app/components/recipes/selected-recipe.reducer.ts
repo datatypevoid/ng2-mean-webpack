@@ -11,7 +11,8 @@
 // selected recipe
 export const selectedRecipe = (state: any = null, {type, payload}) => {
 
-  console.log('selected items reducer hit! type: ');
+  // DEBUG
+  console.log('selected recipe reducer hit! type: ');
   console.log(type);
   console.log('payload: ');
   console.log(payload);
@@ -28,4 +29,4 @@ export const selectedRecipe = (state: any = null, {type, payload}) => {
     default:
       return state;
   }
-}
+};

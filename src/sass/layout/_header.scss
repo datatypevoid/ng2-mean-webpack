@@ -2,8 +2,9 @@
 
 // *Mobile First Method*
 
-// #### *Custom, iPhone Retina*
-@include respond-to('retina') {
+// #### *Extra Small Devices, Phones*
+@include break('xs') {
+
   nav ul {
     display: inline;
     list-style-type: none;
@@ -11,31 +12,31 @@
     padding: 0;
     width: 60px;
   }
+
   nav li {
     display: inline;
   }
-  nav li.active {
-    background-color: lightgray;
+
+  nav li {
+
+    &.active {
+      background-color: brand-color('primary', 'light');
+    }
   }
 }
 
-// #### *Extra Small Devices, Phones*
-@include respond-to('xsmall') {
-
-}
-
 // #### *Small Devices, Tablets*
-@include respond-to('small') {
+@include break('small') {
 
 }
 
 
 // #### *Medium Devices, Desktops*
-@include respond-to('medium') {
+@include break('medium') {
 
 }
 
 // #### *Large Devices, Wide Screens*
-@include respond-to('large') {
+@include break('large') {
 
 }

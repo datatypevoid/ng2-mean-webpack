@@ -10,26 +10,22 @@
 
   &:hover {
 
-    color: $color-text-hover;
     background-color: $color;
+    color: $color-text-hover;
   }
 }
 
-// Responsive breakpoint manager
-// @access public
-// @param {String} $breakpoint - Breakpoint
-// @requires $breakpoints
-@mixin respond-to($breakpoint) {
-
-  $raw-query: map-get($breakpoints, $breakpoint);
+// responsive media query mixin
+// use the `map-get` function to fetch the corresponding value from the
+// breakpoints map based on the passed in `key`
+@mixin break($size) {
+  $raw-query: (min-width: map-get($viewport, $size));
 
   @if $raw-query {
-
     $query: if(type-of($raw-query) == 'string',
       unquote($raw-query), inspect($raw-query));
 
-    @media only screen and #{$query} {
-
+    @media screen and #{$query} {
       @content;
     }
   } @else {
@@ -37,6 +33,151 @@
     @error 'No value is found for `#{$breakpoint}`.'
            + 'Please make sure it is defined within '
            + '`$breakpoints` map.';
+  }
+}
+
+// # Grid Mixins
+@mixin auto-width() {
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+}
+
+@mixin percent-width($property, $columns, $count) {
+
+  #{$property}: ((100% / $columns) * $count);
+}
+
+@mixin percent-offset($property, $columns, $count) {
+
+  $single-column-width: ((100% / $columns) * 1);
+
+  #{$property}: $single-column-width * $count;
+}
+
+@mixin queries($key, $queries) {
+
+  $query: map-get($queries, $key);
+
+  @if ($query == $default-query) {
+
+    @content;
+  } @else {
+
+    @media screen and (min-width: #{$query}) {
+
+      @content;
+    }
+  }
+}
+
+@mixin columns($selector: map-get($grid-config, 'column-selector'),
+               $properties: map-get($properties, 'column'),
+               $columns: map-get($grid-config, 'column-count'),
+               $queries: $queries) {
+
+  $block-delimiter: map-get($delimiters, 'block');
+  $element-delimiter: map-get($delimiters, 'element');
+  $modifier-delimiter: map-get($delimiters, 'modifier');
+
+  @each $key, $size in $sizes {
+
+    $iterator-selector: '';
+
+    @for $i from 0 through $columns {
+
+      @if ($i == 0) {
+
+        $iterator-selector: #{$selector}#{$block-delimiter}#{$size};
+      } @else {
+
+        $iterator-selector: #{$selector}#{$block-delimiter}#{$size}#{$modifier-delimiter}#{$i};
+      }
+
+      #{$iterator-selector} {
+
+        @extend %column;
+      }
+    }
+
+    @include queries($size, $queries) {
+
+      @for $i from 0 through $columns {
+
+        @if ($i == 0) {
+          #{$selector}#{$block-delimiter}#{$size} {
+
+            @content;
+            @include auto-width();
+          }
+        } @else {
+
+          #{$selector}#{$block-delimiter}#{$size}#{$modifier-delimiter}#{$i} {
+
+            @content;
+
+            @each $prop in $properties {
+
+              @include percent-width($prop, $columns, $i);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin offsets($selector: map-get($grid-config, 'column-selector'),
+              $modifier-selector: map-get($grid-config, 'offset-modifier'),
+              $properties: map-get($properties, 'offset'),
+              $columns: map-get($grid-config, 'column-count'),
+              $queries: $queries) {
+
+  $block-delimiter: map-get($delimiters, 'block');
+  $element-delimiter: map-get($delimiters, 'element');
+  $modifier-delimiter: map-get($delimiters, 'modifier');
+
+  @each $key, $size in $sizes {
+
+    @for $i from 1 through $columns {
+
+      #{$selector}#{$block-delimiter}#{$size}#{$modifier-delimiter}#{$modifier-selector}#{$modifier-delimiter}#{$i} {
+
+        @extend %column;
+      }
+    }
+
+    @include queries($size, $queries) {
+
+      @for $i from 1 through $columns {
+
+        #{$selector}#{$block-delimiter}#{$size}#{$modifier-delimiter}#{$modifier-selector}#{$modifier-delimiter}#{$i} {
+
+          @content;
+
+          @each $prop in $properties {
+
+            @include percent-offset($prop, $columns, $i);
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin breakpoints($selector, $queries: $queries) {
+
+  $modifier-delimiter: map-get($delimiters, 'modifier');
+
+  @each $key, $size in $sizes {
+
+    #{$selector}#{$modifier-delimiter}#{$size} {
+
+      @include queries($size, $queries) {
+
+        @content;
+      }
+    }
   }
 }
 

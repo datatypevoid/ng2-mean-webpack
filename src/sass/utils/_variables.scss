@@ -1,10 +1,52 @@
-// # Responsive Breakpoints
-$breakpoints : (
-  'retina' : (min-width : 320px),
-  'xsmall' : (min-width : 480px),
-  'small' : (min-width : 768px),
-  'medium' : (min-width : 992px),
-  'large' : (min-width : 1200px)
+$gutter-width: 1rem !default;
+$outer-margin: 2rem !default;
+
+$grid-config: (
+ 'column-count' : 12,
+ 'column-selector': '.col',
+ 'offset-modifier': 'offset',
+ 'gutter-compensation': (($gutter-width / 2) * -1),
+ 'half-gutter-width': ($gutter-width / 2)
+);
+
+$width: (
+  'xs': 30,
+  'sm': 48,
+  'md': 62,
+  'lg': 75
+);
+
+$viewport: (
+  'xs': #{map-get($width, 'xs')}rem,
+  'sm': #{map-get($width, 'sm')}rem,
+  'md': #{map-get($width, 'md')}rem,
+  'lg': #{map-get($width, 'lg')}rem,
+);
+
+$delimiters: (
+  'block': '-',
+  'element': '-',
+  'modifier': '-'
+);
+
+$default-query: #{map-get($viewport, 'xs')} !default;
+
+$sizes: (
+  'xs': 'xs',
+  'sm': 'sm',
+  'md': 'md',
+  'lg': 'lg'
+);
+
+$queries: (
+  #{map-get($sizes, 'xs')}:#{map-get($viewport, 'xs')},
+  #{map-get($sizes, 'sm')}:#{map-get($viewport, 'sm')},
+  #{map-get($sizes, 'md')}:#{map-get($viewport, 'md')},
+  #{map-get($sizes, 'lg')}:#{map-get($viewport, 'lg')}) !default;
+
+$properties: (
+  'column': ('flex-basis', 'max-width'),
+  'offset': ('margin-left')
 );
 
 // # Colors
@@ -18,17 +60,17 @@ $brand-color-key: 'base'!default;
 // give each color a semantic name describing its role
 $brand-colors: (
   'primary' : (
-    'base' : #ff9800,
-    'light' : #FFE0B2,
-    'dark' : #f57c00
+    'base' : #607D8B,
+    'light' : #CFD8DC,
+    'dark' : #455A64
   ),
 
   'accent' : (
-    'base' : #ff5252
+    'base' : #9E9E9E
   ),
 
   'text' : (
-    'base' : #ffe0b2,
+    'base' : #B6B6B6,
     'dark' : #727272,
     'darker' : #212121
   )
@@ -38,8 +80,8 @@ $brand-colors: (
 // project's design with Sass maps
 $brand-opacity: (
 
-  'light': 0.8, // opacity used with lighter colors
-  'dark': 0.4   // opacity used with darker colors
+  'light': .8, // opacity used with lighter colors
+  'dark':  .4   // opacity used with darker colors
                 // ... et cetera
 );
 
@@ -52,7 +94,7 @@ $color-interval: 10% !global;
 // ## Button Variables
 // for relating component specific-values to others and preventing
 // magic numbers
-$button-padding: 0.5rem 1rem;
+$button-padding: .5rem 1rem;
 $button-font-size: type-scale(-1);                // utility function
 $button-bgcolor: brand-color('primary');
 $button-border-width: 1rem;

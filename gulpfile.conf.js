@@ -189,9 +189,3 @@ gulp.task('clean:docs', (callback) => {
     callback('Failed to delete files: ' + reason); // fail
   });
 });
-
-gulp.task('clean:docsTEST', function () {
-  console.log('current directory: ', require('process').cwd());
-  console.log('files:', globby.sync(['./docs/**/*']));
-  return del(['docs/**/*']);
-});

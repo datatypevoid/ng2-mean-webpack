@@ -97,9 +97,66 @@
 
 // ## Code Placeholders
 // ### Inline and block
+%code,
+%kbd,
+%pre,
+%samp {
+  font-family: font-stack('code');
+}
+
+// Inline code
 %code {
-  background-color: brand-color('code', 'base');
-  color: brand-color('text', 'darker');
-  font-size: type-scale(-1);
-  padding: .125rem;
+  background-color: $code-bg-color;
+  border-radius: $border-radius-base;
+  color: $code-color;
+  font-size: $code-font-size;
+  padding: $code-padding;
+}
+
+// User input typically entered via keyboard
+%kbd {
+  background-color: $code-bg-color;
+  border-radius: $border-radius-base;
+  box-shadow: $component-box-shadow;
+  color: $code-color;
+  font-size: $code-font-size;
+  padding: $code-padding;
+
+  kbd {
+    box-shadow: none;
+    font-size: 100%;
+    font-weight: font-weight('bold');
+    padding: $padding-zero;
+  }
+}
+
+// Blocks of code
+%pre {
+  background-color: $code-bg-color;
+  border: $code-border;
+  border-radius: $border-radius-base;
+  color: $code-color;
+  display: block;
+  font-size: $code-font-size;
+  line-height: line-height(0);
+  margin: 0 0 line-height(-2);
+  padding: $code-padding;
+  word-break: break-all;
+  word-wrap: break-word;
+
+  // Account for some code outputs that place code tags in pre tags
+  code {
+    background-color: transparent;
+    border-radius: 0;
+    color: inherit;
+    font-size: inherit;
+    padding: $padding-zero;
+    white-space: pre-wrap;
+  }
+}
+
+// Enable scrollable blocks of code
+%pre-scrollable {
+  max-height: $pre-scrollable-max-height;
+  overflow-y: scroll;
 }

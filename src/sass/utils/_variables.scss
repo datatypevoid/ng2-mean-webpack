@@ -71,6 +71,7 @@ $border-radius-large: type-scale(-3);
 $border-radius-small: type-scale(-6);
 
 $margin-zero: 0;
+$padding-zero: 0;
 
 $base-unit: .063rem;
 
@@ -78,6 +79,8 @@ $base-unit: .063rem;
 $component-active-color: brand-color('primary', 'light');
 // ** Global background color for active items (e.g., navs or dropdowns)
 $component-active-color: brand-color('primary', 'base');
+
+$component-box-shadow: 0 $base-unit $base-unit rgba(0, 0, 0, .05);
 
 // # Buttons
 
@@ -103,7 +106,7 @@ $panel-border-style: solid;
 $panel-border-color: transparent;
 $panel-border: $panel-border-width $panel-border-style $panel-border-color;
 
-$panel-box-shadow: 0 $base-unit $base-unit rgba(0, 0, 0, .05);
+$panel-box-shadow: $component-box-shadow;
 
 // ** Border color for elements within panels
 $panel-inner-border: brand-color('accent', 'base');
@@ -112,3 +115,18 @@ $panel-footer-bg: brand-color('text', 'base');
 $panel-default-text: brand-color('text', 'darker');
 $panel-default-border: brand-color('primary', 'base');
 $panel-default-heading-bg: color-brand('text', 'base');
+
+// ## Code
+$code-bg-color: brand-color('code', 'base');
+$code-color: brand-color('text', 'darker');
+
+$code-font-size: type-scale(-1);
+
+$code-padding: type-scale(-6) type-scale(-5);
+
+$code-border-width: $base-unit;
+$code-border-style: solid;
+$code-border-color: brand-color('code', 'base', 'dark');
+$code-border: $panel-border-width $panel-border-style $panel-border-color;
+
+$pre-scrollable-max-height: 9999px;

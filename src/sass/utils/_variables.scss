@@ -148,3 +148,13 @@ $code-border-color: brand-color('code', 'base', 'dark');
 $code-border: $panel-border-width $panel-border-style $panel-border-color;
 
 $pre-scrollable-max-height: 9999px;
+
+// # Jumbotron
+$jumbotron-padding: line-height(-2);
+$jumbotron-margin: $jumbotron-padding;
+
+$jumbotron-color: brand-color('text', 'darker');
+$jumbotron-heading-color: brand-color('text', 'darker');
+$jumbotron-bg: brand-color('primary', 'light');
+
+$jumbotron-hr-border-color: brand-color('primary', 'light', 'light');

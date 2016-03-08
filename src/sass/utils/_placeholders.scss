@@ -160,3 +160,56 @@
   max-height: $pre-scrollable-max-height;
   overflow-y: scroll;
 }
+
+// ## Jumbotron
+%jumbotron {
+  background-color: $jumbotron-bg;
+  color: $jumbotron-color;
+  margin-bottom: $jumbotron-margin;
+  padding-bottom: $jumbotron-padding;
+  padding-top: $jumbotron-padding;
+
+  @include break('sm') {
+    padding-bottom: line-height(1);
+    padding-top: line-height(1);
+
+    .container &,
+    .container-fluid & {
+      padding-left: line-height(1);
+      padding-right: line-height(1);
+    }
+
+    h1,
+    .h1 {
+      font-size: $jumbotron-heading-font-size;
+    }
+  }
+
+  h1,
+  .h1 {
+    color: $jumbotron-heading-color;
+  }
+
+  p {
+    font-size: $jumbotron-font-size;
+    font-weight: font-weight('light');
+    margin-bottom: line-height(-4);
+  }
+
+  > hr {
+    border-top-color: $jumbotron-hr-border-color;
+  }
+
+  .container &,
+  .container-fluid & {
+    // only round corners at higher resolutions if contained
+    // in a container
+    border-radius: $border-radius-large;
+    padding-left: line-height(4);
+    padding-right: line-height(4);
+  }
+
+  .container {
+    max-width: 100%;
+  }
+}

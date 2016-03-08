@@ -68,7 +68,9 @@ $line-heights: (
   -1 : $line-height-base,
    0 : $line-height-base,
    1 : $line-height-base * 2,
-   2 : $line-height-base * 2
+   2 : $line-height-base * 2,
+   3 : $line-height-base * 4,
+   4 : $line-height-base * 4
 );
 
 // By default, this inherits from `<body>`
@@ -76,3 +78,7 @@ $headings-fonts-family: inherit;
 $headings-font-weight: font-weight('medium');
 $headings-line-height: line-height(0);
 $headings-color: inherit;
+
+// # Jumbotron
+$jumbotron-font-size: type-scale(1);
+$jumbotron-heading-font-size: type-scale(4);

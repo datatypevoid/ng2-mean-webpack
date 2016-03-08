@@ -1,56 +1,3 @@
-// # Responsive Grid Variables
-// ## Define your custom responsive flexbox grid
-$gutter-width: 1rem !default;
-$outer-margin: 2rem !default;
-
-$grid-config: (
- 'column-count' : 12,
- 'column-selector': '.col',
- 'offset-modifier': 'offset',
- 'gutter-compensation': (($gutter-width / 2) * -1),
- 'half-gutter-width': ($gutter-width / 2)
-);
-
-$width: (
-  'xs': 30,
-  'sm': 48,
-  'md': 62,
-  'lg': 75
-);
-
-$viewport: (
-  'xs': #{map-get($width, 'xs')}rem,
-  'sm': #{map-get($width, 'sm')}rem,
-  'md': #{map-get($width, 'md')}rem,
-  'lg': #{map-get($width, 'lg')}rem,
-);
-
-$delimiters: (
-  'block': '-',
-  'element': '-',
-  'modifier': '-'
-);
-
-$default-query: #{map-get($viewport, 'xs')} !default;
-
-$sizes: (
-  'xs': 'xs',
-  'sm': 'sm',
-  'md': 'md',
-  'lg': 'lg'
-);
-
-$queries: (
-  #{map-get($sizes, 'xs')}:#{map-get($viewport, 'xs')},
-  #{map-get($sizes, 'sm')}:#{map-get($viewport, 'sm')},
-  #{map-get($sizes, 'md')}:#{map-get($viewport, 'md')},
-  #{map-get($sizes, 'lg')}:#{map-get($viewport, 'lg')}) !default;
-
-$properties: (
-  'column': ('flex-basis', 'max-width'),
-  'offset': ('margin-left')
-);
-
 // # Scaffolding Variables
 
 // ** background color for `<body>`
@@ -87,11 +34,6 @@ $line-height-small: line-heights(1);
 $border-radius-base: type-scale(-5);
 $border-radius-large: type-scale(-3);
 $border-radius-small: type-scale(-6);
-
-$margin-zero: 0;
-$padding-zero: 0;
-
-$base-unit: .063rem;
 
 // ** Global color for active items (e.g., navs or dropdowns)
 $component-active-color: brand-color('primary', 'light');

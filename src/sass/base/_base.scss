@@ -1,3 +1,65 @@
+// # Base Units
+
+// Approximately `1px` when calculated for a
+// browser standard of `16px`
+$base-unit: .063rem;
+
+$margin-zero: 0;
+$padding-zero: 0;
+
+// # Responsive Grid Variables
+// ## Define your custom responsive flexbox grid
+$gutter-width: 1rem !default;
+$outer-margin: 2rem !default;
+
+$grid-config: (
+ 'column-count' : 12,
+ 'column-selector': '.col',
+ 'offset-modifier': 'offset',
+ 'gutter-compensation': (($gutter-width / 2) * -1),
+ 'half-gutter-width': ($gutter-width / 2)
+);
+
+$width: (
+  'xs': 30,
+  'sm': 48,
+  'md': 62,
+  'lg': 75
+);
+
+$viewport: (
+  'xs': #{map-get($width, 'xs')}rem,
+  'sm': #{map-get($width, 'sm')}rem,
+  'md': #{map-get($width, 'md')}rem,
+  'lg': #{map-get($width, 'lg')}rem,
+);
+
+$delimiters: (
+  'block': '-',
+  'element': '-',
+  'modifier': '-'
+);
+
+$default-query: #{map-get($viewport, 'xs')} !default;
+
+$sizes: (
+  'xs': 'xs',
+  'sm': 'sm',
+  'md': 'md',
+  'lg': 'lg'
+);
+
+$queries: (
+  #{map-get($sizes, 'xs')}:#{map-get($viewport, 'xs')},
+  #{map-get($sizes, 'sm')}:#{map-get($viewport, 'sm')},
+  #{map-get($sizes, 'md')}:#{map-get($viewport, 'md')},
+  #{map-get($sizes, 'lg')}:#{map-get($viewport, 'lg')}) !default;
+
+$properties: (
+  'column': ('flex-basis', 'max-width'),
+  'offset': ('margin-left')
+);
+
 // # Colors
 
 // ## Utility colors
@@ -31,6 +93,26 @@ $brand-colors: (
 
   'code': (
     'base': #B6B6B6
+  ),
+
+  'success': (
+    'base': #3c763d,
+    'light': #dff0d8
+  ),
+
+  'info': (
+    'base': #31708f,
+    'light': #d9edf7
+  ),
+
+  'warning': (
+    'base': #8a6d3b,
+    'light': #fcf8e3
+  ),
+
+  'danger': (
+    'base': #a94442,
+    'light': #f2dede
   )
 );
 
@@ -187,4 +269,58 @@ $color-interval: 10% !global;
   @warn 'Unknown `{$key}` requested from $line-heights.';
 
   @return null;
+}
+
+// # Utility Mixins
+
+// responsive media query mixin
+// use the `map-get` function to fetch the corresponding value from the
+// breakpoints map based on the passed in `key`
+@mixin break($size) {
+  $raw-query: (min-width: map-get($viewport, $size));
+
+  @if $raw-query {
+    $query: if(type-of($raw-query) == 'string',
+      unquote($raw-query), inspect($raw-query));
+
+    @media only screen and #{$query} {
+
+      @content;
+    }
+  } @else {
+
+    @error 'No value is found for `#{$breakpoint}`.'
+           + 'Please make sure it is defined within '
+           + '`$breakpoints` map.';
+  }
+}
+
+// ## Clearfix
+// For clearing floats
+@mixin clearfix() {
+
+  zoom: 1;
+
+  &:before,
+  &:after {
+
+    content: '';
+    display: table;
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// ## Text overflow
+// Requires `inline-block` or `block` for proper styling
+@mixin text-overflow() {
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

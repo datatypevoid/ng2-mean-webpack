@@ -1,26 +1,3 @@
-// # Utility Mixins
-
-// ## Clearfix
-// For clearing floats
-@mixin clearfix() {
-
-  zoom: 1;
-
-  &:before,
-  &:after {
-
-    content: '';
-    display: table;
-    // Fixes Opera/contenteditable bug:
-    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
-    line-height: 0;
-  }
-
-  &:after {
-    clear: both;
-  }
-}
-
 // # Typography Mixins
 
 // Mixin for setting the font-size and line-height according to
@@ -31,11 +8,6 @@
 //   .paragraph { @include type-setting(0); }
 @mixin type-setting($level : 0) {
 
-  font-size: type-scale($level);
-  line-height: line-height($level);
-}
-
-@mixin type-setting($level) {
   font-size: type-scale($level);
   line-height: line-height($level);
 }
@@ -65,28 +37,6 @@
   color: $panel-text-color;
   border-color: $panel-border;
   background-color: $panel-heading-bg;
-}
-
-// responsive media query mixin
-// use the `map-get` function to fetch the corresponding value from the
-// breakpoints map based on the passed in `key`
-@mixin break($size) {
-  $raw-query: (min-width: map-get($viewport, $size));
-
-  @if $raw-query {
-    $query: if(type-of($raw-query) == 'string',
-      unquote($raw-query), inspect($raw-query));
-
-    @media only screen and #{$query} {
-
-      @content;
-    }
-  } @else {
-
-    @error 'No value is found for `#{$breakpoint}`.'
-           + 'Please make sure it is defined within '
-           + '`$breakpoints` map.';
-  }
 }
 
 // # Grid Mixins

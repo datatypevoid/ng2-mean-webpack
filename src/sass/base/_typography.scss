@@ -42,6 +42,8 @@ $type-scale : (
    5 : 4.208rem
 );
 
+$base-font-family: font-stack('primary');
+
 $font-size-base: type-scale(0);
 $font-size-large: type-scale(1);
 $font-size-small: type-scale(-1);

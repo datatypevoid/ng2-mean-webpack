@@ -188,17 +188,3 @@ $color-interval: 10% !global;
 
   @return null;
 }
-
-// ## Scaffolding
-
-// ** background color for `<body>`
-$body-bg: brand-color-level('primary', 'light', 2);
-// ** global text color on `<body>`
-$text-color: brand-color('text', 'darker');
-
-// ** global textual link color-interval
-$link-color: brand-color('primary', 'base');
-// ** link hover color
-$link-hover-color: brand-color-level('primary', 'base', 2);
-// ** link hover decoration
-$link-hover-decoration: underline;

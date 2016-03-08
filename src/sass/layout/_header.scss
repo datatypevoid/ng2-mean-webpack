@@ -2,27 +2,25 @@
 
 // *Mobile First Method*
 
+nav ul {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 60px;
+}
+
+nav li {
+  display: inline;
+
+  &.active {
+    background-color: brand-color('primary', 'light');
+  }
+}
+
 // #### *Extra Small Devices, Phones*
 @include break('xs') {
 
-  nav ul {
-    display: inline;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 60px;
-  }
-
-  nav li {
-    display: inline;
-  }
-
-  nav li {
-
-    &.active {
-      background-color: brand-color('primary', 'light');
-    }
-  }
 }
 
 // #### *Small Devices, Tablets*

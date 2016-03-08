@@ -7,10 +7,84 @@
   border-style: solid;
   border-width: $button-border-width;
   display: inline-block;
-  font-size: $button-font-size;
+  font-size: type-scale(-1);                // utility function
   font-weight: bold;
   padding: $button-padding;
   text-transform: uppercase;
+}
+
+// ## Panels
+// * base components
+%panel {
+  background-color: $panel-bg;
+  border: $panel-border;
+  border-radius: $panel-border-radius;
+  box-shadow: $panel-box-shadow;
+  margin-bottom: line-height(0);
+}
+
+%panel-body {
+
+  @include clearfix();
+
+  padding: $panel-body-padding;
+}
+
+%panel-heading {
+  border-bottom: $panel-border;
+  border-top-left-radius: $panel-border-radius;
+  border-top-right-radius: $panel-border-radius;
+  padding: $panel-heading-padding;
+}
+
+// within heading, strip out any `h*` tag of its default
+// margins for spacing
+%panel-title {
+  color: inherit;
+  font-size: type-scale(1);
+  margin-bottom: $margin-zero;
+  margin-top: $margin-zero;
+}
+
+%panel-footer {
+  background-color: $panel-footer-bg;
+  border-bottom-left-radius: $panel-border-radius;
+  border-bottom-right-radius: $panel-border-radius;
+  border-top: $base-unit solid $panel-inner-border;
+  padding: $panel-footer-padding;
+}
+
+%panel-group {
+
+  margin-bottom: line-height(-2);
+
+  .panel {
+
+    border-radius: $panel-border-radius;
+    margin-bottom: line-height(-2);
+
+    .panel {
+      margin-top: line-height(-4);
+    }
+  }
+
+  .panel-heading {
+
+    border-bottom: 0;
+
+    .panel-collapse > .panel-body {
+      border-top: $base-unit;
+    }
+  }
+
+  .panel-footer {
+
+    border-top: 0;
+
+    .panel-collapse .panel-body {
+      border-bottom: $panel-border;
+    }
+  }
 }
 
 %column {
@@ -19,4 +93,13 @@
   flex-shrink: 0;
   padding-left: map-get($grid-config, 'half-gutter-width');
   padding-right: map-get($grid-config, 'half-gutter-width');
+}
+
+// ## Code Placeholders
+// ### Inline and block
+%code {
+  background-color: brand-color('code', 'base');
+  color: brand-color('text', 'darker');
+  font-size: type-scale(-1);
+  padding: .125rem;
 }

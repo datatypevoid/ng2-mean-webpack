@@ -1,3 +1,5 @@
+// # Responsive Grid Variables
+// ## Define your custom responsive flexbox grid
 $gutter-width: 1rem !default;
 $outer-margin: 2rem !default;
 
@@ -49,45 +51,33 @@ $properties: (
   'offset': ('margin-left')
 );
 
-// # Colors
+// # Component Variables
+// These are common variables such as common padding and border
+// radius sizes and more.
+$padding-base-vertical: type-scale(-3);
+$padding-base-horizontal: type-scale(-1);
 
-// ## Brand Color Variables
+$padding-large-vertical: type-scale(-2);
+$padding-large-horizontal: type-scale(0);
 
-// define the base (default) color key
-$brand-color-key: 'base'!default;
+$padding-small-vertical: type-scale(-4);
+$padding-small-horizontal: type-scale(-2);
 
-// keep color variables organized in a Sass `map`
-// give each color a semantic name describing its role
-$brand-colors: (
-  'primary' : (
-    'base' : #607D8B,
-    'light' : #CFD8DC,
-    'dark' : #455A64
-  ),
+$line-height-large: line-heights(-1);
+$line-height-small: line-heights(1);
 
-  'accent' : (
-    'base' : #9E9E9E
-  ),
+$border-radius-base: type-scale(-5);
+$border-radius-large: type-scale(-3);
+$border-radius-small: type-scale(-6);
 
-  'text' : (
-    'base' : #B6B6B6,
-    'dark' : #727272,
-    'darker' : #212121
-  )
-);
+$margin-zero: 0;
 
-// aggregate different semantic levels of opacity used in a
-// project's design with Sass maps
-$brand-opacity: (
+$base-unit: .063rem;
 
-  'light': .8, // opacity used with lighter colors
-  'dark':  .4   // opacity used with darker colors
-                // ... et cetera
-);
-
-// set tint/shade interval for use with the opacity level utility
-// function
-$color-interval: 10% !global;
+// ** Global color for active items (e.g., navs or dropdowns)
+$component-active-color: brand-color('primary', 'light');
+// ** Global background color for active items (e.g., navs or dropdowns)
+$component-active-color: brand-color('primary', 'base');
 
 // # Buttons
 
@@ -95,8 +85,30 @@ $color-interval: 10% !global;
 // for relating component specific-values to others and preventing
 // magic numbers
 $button-padding: .5rem 1rem;
-$button-font-size: type-scale(-1);                // utility function
 $button-bgcolor: brand-color('primary');
 $button-border-width: 1rem;
 $button-color-hover: brand-color('primary', 'light');
 $button-height: line-height(1);
+
+// # Panels
+
+$panel-bg: brand-color('primary', 'light');
+$panel-body-padding: line-height(0);
+$panel-heading-padding: line-height(-2) line-height(0);
+$panel-footer-padding: $panel-heading-padding;
+$panel-border-radius: $border-radius-base;
+
+$panel-border-width: $base-unit;
+$panel-border-style: solid;
+$panel-border-color: transparent;
+$panel-border: $panel-border-width $panel-border-style $panel-border-color;
+
+$panel-box-shadow: 0 $base-unit $base-unit rgba(0, 0, 0, .05);
+
+// ** Border color for elements within panels
+$panel-inner-border: brand-color('accent', 'base');
+$panel-footer-bg: brand-color('text', 'base');
+
+$panel-default-text: brand-color('text', 'darker');
+$panel-default-border: brand-color('primary', 'base');
+$panel-default-heading-bg: color-brand('text', 'base');

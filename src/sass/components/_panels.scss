@@ -1,0 +1,44 @@
+// # Exported Selector
+// the manifested CSS classes/selectors, if they are to be exposed
+.panel {
+
+  @extend %panel;
+
+  &.primary {
+
+    @include brand-panel-theme(brand-color('text', 'darker'),
+                                 brand-color('primary', 'light'),
+                                 brand-color('primary', 'dark'));
+
+    .panel-heading {
+      @include brand-panel-theme($white,
+                                 brand-color('primary', 'dark'),
+                                 brand-color('primary', 'dark'));
+    }
+  }
+}
+
+.panel-body {
+
+  @extend %panel-body;
+}
+
+.panel-heading {
+
+  @extend %panel-heading;
+}
+
+.panel-title {
+
+  @extend %panel-title;
+}
+
+.panel-footer {
+
+  @extend %panel-footer;
+}
+
+.panel-group {
+
+  @extend %panel-group;
+}

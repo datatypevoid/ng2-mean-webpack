@@ -19,9 +19,9 @@
 
 // ### Sass Module Partials
 
+@import 'base/module';
 @import 'utils/module';
 @import 'vendors/module';
-@import 'base/module';
 @import 'layout/module';
 @import 'components/module';
 @import 'pages/module';

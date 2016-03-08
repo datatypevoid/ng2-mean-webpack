@@ -2,13 +2,6 @@
 
 // ## Typography variables
 
-// Set base font size
-$base-font-size: 1rem;
-
-// Determine the base line height which is a ratio multiplied
-// by the base font size.
-$base-line-height : $base-font-size * 1.25;
-
 // Store font weights semantically within a Sass map
 $font-weights : (
   'thin' : 100,
@@ -31,19 +24,53 @@ $font-stacks : (
 
 // Define a modular type scale
 // Map keys represent the power of the ratio
+// This map contains values mapped to a scale of `1.333`
+// otherwise known as a `Perfect Third`.
 // Reference : https://scotch.io/tutorials/aesthetic-sass-3-typography-and-vertical-rhythm
 $type-scale : (
+  -6 : .179rem,
+  -5 : .238rem,
+  -4 : .317rem,
+  -3 : .422rem,
+  -2 : .563rem,
   -1 : .75rem, // small text
    0 : 1rem, // body text
    1 : 1.333rem, // large text
-   2 : 1.777rem // main heading
+   2 : 1.777rem, // main heading
+   3 : 2.369rem,
+   4 : 3.157rem,
+   5 : 4.208rem
 );
+
+$font-size-base: type-scale(0);
+$font-size-large: type-scale(1);
+$font-size-small: type-scale(-1);
+
+$font-size-h1: type-scale(3);
+$font-size-h2: type-scale(2);
+$font-size-h3: type-scale(1);
+$font-size-h4: type-scale(0);
+$font-size-h5: type-scale(-1);
+$font-size-h6: type-scale(-2);
+
+// Determine the base line height which is a ratio multiplied
+// by the base font size.
+$line-height-base : $font-size-base * 1.33;
 
 // Use a multiple of the base line height for each font size, typically
 // closer to—but larger than—the font size.
 $line-heights: (
-  -1 : $base-line-height,
-   0 : $base-line-height,
-   1 : $base-line-height * 2,
-   2 : $base-line-height * 2
+  -4 : ($line-height-base / 4),
+  -3 : ($line-height-base / 2),
+  -2 : ($line-height-base / 2),
+  -1 : $line-height-base,
+   0 : $line-height-base,
+   1 : $line-height-base * 2,
+   2 : $line-height-base * 2
 );
+
+// By default, this inherits from `<body>`
+$headings-fonts-family: inherit;
+$headings-font-weight: font-weight('medium');
+$headings-line-height: line-height(0);
+$headings-color: inherit;

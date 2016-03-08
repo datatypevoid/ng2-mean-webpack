@@ -1,3 +1,45 @@
+// # Utility Mixins
+
+// ## Clearfix
+// For clearing floats
+@mixin clearfix() {
+
+  zoom: 1;
+
+  &:before,
+  &:after {
+
+    content: '';
+    display: table;
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// # Typography Mixins
+
+// Mixin for setting the font-size and line-height according to
+// a modular type scale.
+// Example:
+//   .heading-1 { @include type-setting(2); }
+//   .heading-2 { @include type-setting(-1); }
+//   .paragraph { @include type-setting(0); }
+@mixin type-setting($level : 0) {
+
+  font-size: type-scale($level);
+  line-height: line-height($level);
+}
+
+@mixin type-setting($level) {
+  font-size: type-scale($level);
+  line-height: line-height($level);
+}
+
 // # Button Mixins
 // for dynamically generating variations of the component
 @mixin brand-button-theme($color,
@@ -15,6 +57,16 @@
   }
 }
 
+// # Panel Mixins
+@mixin brand-panel-theme($panel-text-color,
+                         $panel-heading-bg,
+                         $panel-border: $panel-heading-bg) {
+
+  color: $panel-text-color;
+  border-color: $panel-border;
+  background-color: $panel-heading-bg;
+}
+
 // responsive media query mixin
 // use the `map-get` function to fetch the corresponding value from the
 // breakpoints map based on the passed in `key`
@@ -25,7 +77,8 @@
     $query: if(type-of($raw-query) == 'string',
       unquote($raw-query), inspect($raw-query));
 
-    @media screen and #{$query} {
+    @media only screen and #{$query} {
+
       @content;
     }
   } @else {
@@ -179,18 +232,6 @@
       }
     }
   }
-}
-
-// Mixin for setting the font-size and line-height according to
-// a modular type scale.
-// Example:
-//   .heading-1 { @include type-setting(2); }
-//   .heading-2 { @include type-setting(-1); }
-//   .paragraph { @include type-setting(0); }
-@mixin type-setting($level : 0) {
-
-  font-size: type-scale($level);
-  line-height: line-height($level);
 }
 
 @mixin bg-img-full($url) {

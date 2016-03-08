@@ -41,7 +41,7 @@ export class Accordion {
 @View({
         template: `
 
-          <div class="panel panel-default" [ngClass]="{'panel-open': isOpen}">
+          <div class="panel primary" [ngClass]="{'panel-open': isOpen}">
             <div class="panel-heading" (click)="toggleOpen($event)">
               <h4 class="panel-title">
                 <a href tabindex="0"><span>{{heading}}</span></a>

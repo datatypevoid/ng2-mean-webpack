@@ -1,0 +1,15 @@
+// # Code
+// ## Inline and Block
+
+// `Inline` and `block` code styles
+code,
+kbd,
+pre,
+samp {
+  font-family: font-stack('code');
+}
+
+// `Inline` code
+code {
+  @extend %code;
+}

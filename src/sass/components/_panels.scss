@@ -6,15 +6,10 @@
 
   &.primary {
 
-    @include brand-panel-theme(brand-color('text', 'darker'),
-                                 brand-color('primary', 'light'),
-                                 brand-color('primary', 'dark'));
-
-    .panel-heading {
-      @include brand-panel-theme($white,
-                                 brand-color('primary', 'dark'),
-                                 brand-color('primary', 'dark'));
-    }
+    @include brand-panel-theme(brand-color('primary', 'dark'),
+                               $white,
+                               brand-color('primary', 'dark'),
+                               brand-color('primary', 'dark'));
   }
 }
 

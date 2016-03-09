@@ -100,3 +100,51 @@ $jumbotron-heading-color: brand-color('text', 'darker');
 $jumbotron-bg: brand-color('primary', 'light');
 
 $jumbotron-hr-border-color: brand-color('primary', 'light', 'light');
+
+// # Forms
+
+// ** `<input>` background color
+$input-bg: brand-color('primary', 'light');
+// ** `<input disabled>` background color
+$input-bg-disabled: $text-muted;
+
+// ** Text color for `<input>`'s
+$input-color: brand-color('text', 'darker');
+// ** `<input>` border color
+$input-border: brand-color('primary', 'light', 'light');
+
+// ** Default `.form-control` border radius
+// This has no effect on `<select>`'s in some browsers due to
+// limited control over `<select>` in `CSS`
+$input-border-radius-base: $border-radius-base;
+// ** Large `.form-control` border radius
+$input-border-radius-large: $border-radius-large;
+// ** Small `.form-control` border radius
+$input-border-radius-small: $border-radius-small;
+
+// ** Border color for inputs on focus
+$input-border-focus: brand-color('primary', 'dark');
+
+// ** Placeholder text color
+$input-color-placeholder: brand-color('text', 'dark');
+
+// ** Default `.form-control` height
+$input-height-base: line-height(0);
+// ** Large `.form-control` height
+$input-height-large: line-height(2);
+// ** Small `.form-control` height
+$input-height-small: line-height(-2);
+
+// ** `.form-group` margin
+$form-group-margin-bottom: type-scale(0);
+
+$legend-color: brand-color('text', 'dark');
+$legend-border-color: brand-color('text', 'dark', 'dark');
+
+// ** Background color for textual input addons
+$input-group-addon-bg: $text-muted;
+// ** Border color for textual input addons
+$input-group-addon-border-color: $input-border;
+
+// ** Disabled cursor for form controls and buttons
+$cursor-disabled: not-allowed;

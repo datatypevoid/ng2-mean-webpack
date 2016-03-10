@@ -72,11 +72,19 @@ npm install
 }
 
 # build code
-# start Webpack dev server with hot reload
+npm run build
+
+# start up the stack
+
+# this command runs two commands in parallel via `concurrently`:
+# `npm run server` starts up `webpack-dev-server` allowing for
+# hot module reloading
+# `npm` run watch` uses `webpack` to watch the necessary files
+# and build on file change
 npm start
 
 # in a separate terminal:
-# start Express server
+# start `Express` server
 gulp serve
 ```
 
@@ -242,7 +250,8 @@ Once you have those, you should install these globals with `npm install --global
 - `npm install` to install all dependencies
 - `typings install` to install necessary typings
 - create `config.json` **_see below_**
-- `npm start` to build the necessary front-end code with Webpack+HMR
+- `npm run build` to build necessary front-end code with Webpack
+- `npm start` to enable hot module reloading and build on file change
 - In a new terminal, `node server` to start the server for the first time
 
 ## config.json
@@ -270,7 +279,7 @@ The `server.conf.js` file is expecting certain `environment` `variables` to be s
 
 ## Running the app
 
-After you have installed all dependencies and created your `config.json` file, you can now run the app. First, you must start up the back-end server in a separate terminal using the `gulp serve` command. This will fire up our Express app using `nodemon`, which will watch for file changes and restart our backend when necessary. Next use the `npm start` command in the original terminal to build our front-end with and start our Webpack dev server, complete with hot module reloading to the browser. You can now fire up your favorite web browser and visit the running application at `localhost:8080`!
+After you have installed all dependencies and created your `config.json` file, you can now run the app. First, you must start up the back-end server in a separate terminal using the `gulp serve` command. This will fire up our Express app using `nodemon`, which will watch for file changes and restart our backend when necessary. Next use the `npm start` command in the original terminal which runs two `npm` scripts in parallel: `npm run server` to start `webpack-dev-server` for building our front-end in the computer's memory, enabling hot module reloadig; `npm run watch` to watch all of the front-end files and build them upon changes. You can now fire up your favorite web browser and visit the running application at `localhost:8080`!
 
 ### server
 

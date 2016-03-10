@@ -26,7 +26,8 @@ interface WebpackModule {
     hot: {
         data?: any,
         idle: any,
-        accept(dependencies?: string | string[], callback?: (updatedDependencies?: any) => void): void;
+        accept(dependencies?: string | string[], callback?:
+             (updatedDependencies?: any) => void): void;
         decline(dependencies?: string | string[]): void;
         dispose(callback?: (data?: any) => void): void;
         addDisposeHandler(callback?: (data?: any) => void): void;
@@ -35,7 +36,7 @@ interface WebpackModule {
         apply(options?: any, callback?: (err?: Error, outdatedModules?: any[]) => void): void;
         status(callback?: (status?: string) => void): void | string;
         removeStatusHandler(callback?: (status?: string) => void): void;
-    }
+    };
 }
 
 interface NodeModule extends WebpackModule {

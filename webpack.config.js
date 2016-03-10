@@ -37,11 +37,6 @@ module.exports = helpers.defaults({
     path: helpers.root('dist')
   },
 
-
-  resolve: {
-    extensions: ['', '.ts', '.async.ts', '.js']
-  },
-
   module: {
     preLoaders: [
       // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },

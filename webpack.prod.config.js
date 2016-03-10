@@ -20,8 +20,10 @@ var ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 var HOST = process.env.HOST || 'localhost';
 var PORT = process.env.PORT || 8080;
 
+var config = require('./config/config.json');
+
 var metadata = {
-  title: 'Angular2 Webpack Starter by @gdi2990 from @AngularClass',
+  title: 'Angular 2 MEAN Webpack Starter Kit by @datatype_void',
   baseUrl: '/',
   host: HOST,
   port: PORT,
@@ -31,12 +33,11 @@ var metadata = {
 /*
  * Config
  */
-module.exports = helpers.defaults({
+module.exports = {
   // static data for index.html
   metadata: metadata,
 
   devtool: 'source-map',
-  cache: false,
   debug: false,
 
   entry: {
@@ -53,7 +54,7 @@ module.exports = helpers.defaults({
   },
 
   resolve: {
-    cache: false
+    extensions: ['', '.ts', '.js', '.scss']
   },
 
   module: {
@@ -82,28 +83,53 @@ module.exports = helpers.defaults({
         query: {
           // remove TypeScript helpers to be injected below by DefinePlugin
           'compilerOptions': {
-            'removeComments': true,
-            'noEmitHelpers': true,
+            'removeComments': true
           }
         },
         exclude: [
-          /\.(spec|e2e)\.ts$/
+          /\.(spec|e2e)\.ts$/,
+          helpers.root('node_modules')
         ]
       },
 
       // Support for *.json files.
-      { test: /\.json$/,  loader: 'json-loader' },
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
+        exclude: [ helpers.root('node_modules') ]
+      },
 
       // Support for CSS as raw text
-      { test: /\.css$/,   loader: 'raw-loader' },
+      {
+        test: /\.css$/,
+        loader: 'raw-loader',
+        exclude: [ helpers.root('node_modules') ]
+      },
 
       // support for .html as raw text
-      { test: /\.html$/,  loader: 'raw-loader',
-        exclude: [ helpers.root('src/index.html') ]
+      {
+        test: /\.html$/,
+        loader: 'raw-loader',
+        exclude: [
+          helpers.root('src/index.html')
+        ]
+      },
+
+      // support for sass imports
+      // add CSS rules to your document:
+      // `require("!style!css!sass!./file.scss");`
+      {
+        test: /\.scss$/,
+        loader: 'style!css!autoprefixer-loader?browsers=last 2 versions!sass',
+        exclude: [ helpers.root('node_modules') ]
       }
 
-      // if you add a loader include the file extension
+    ],
+    noParse: [
+      helpers.root('zone.js', 'dist'),
+      helpers.root('angular2', 'bundles')
     ]
+
   },
 
   plugins: [
@@ -123,23 +149,13 @@ module.exports = helpers.defaults({
       }
     ]),
     // generating html
-    new HtmlWebpackPlugin({
-      template: 'src/index.html'
-    }),
+    new HtmlWebpackPlugin({ template: 'src/index.html' }),
     new DefinePlugin({
       // Environment helpers
       'process.env': {
         'ENV': JSON.stringify(metadata.ENV),
         'NODE_ENV': JSON.stringify(metadata.ENV)
       }
-    }),
-    new ProvidePlugin({
-      // TypeScript helpers
-      '__metadata': 'ts-helper/metadata',
-      '__decorate': 'ts-helper/decorate',
-      '__awaiter': 'ts-helper/awaiter',
-      '__extends': 'ts-helper/extends',
-      '__param': 'ts-helper/param'
     }),
     new UglifyJsPlugin({
       // to debug prod builds uncomment //debug lines and comment //prod lines
@@ -153,15 +169,13 @@ module.exports = helpers.defaults({
       // comments: true,//debug
 
       beautify: false,//prod
-      // disable mangling because of a bug in angular2 beta.1, beta.2 and
-      // beta.3
-      // TODO(mastertinner): enable mangling as soon as angular2 beta.4
-      // is out
+      // disable mangling because of a bug in angular2 beta.1, beta.2 and beta.3
+      // TODO(mastertinner): enable mangling as soon as angular2 beta.4 is out
       // mangle: { screw_ie8 : true },//prod
       mangle: {
         screw_ie8 : true,
-        except: ['RouterLink', 'NgFor', 'NgModel']
-      } // needed for uglify RouterLink problem
+        except: ['RouterLink', 'NgFor', 'NgModel'] // needed for uglify RouterLink problem
+      },// prod
       compress : { screw_ie8 : true },//prod
       comments: false//prod
 
@@ -176,7 +190,7 @@ module.exports = helpers.defaults({
   // Other module loader config
   tslint: {
     emitErrors: true,
-    failOnHint: true, https://github.com/AngularClass/angular2-webpack-starter/issues/374
+    failOnHint: true,
     resourcePath: 'src',
   },
 
@@ -188,6 +202,12 @@ module.exports = helpers.defaults({
     customAttrAssign: [ /\)?\]?=/ ]
   },
   // don't use devServer for production
+  node: {
+    global: 'window',
+    progress: false,
+    crypto: 'empty',
+    module: false,
+    clearImmediate: false,
+    setImmediate: false
+  }
 };
-
-});

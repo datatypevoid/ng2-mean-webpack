@@ -4,6 +4,7 @@ var webpack = require('webpack');
 var helpers = require('./helpers');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 
 var ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 var HMR = helpers.hasProcessFlag('hot');
@@ -83,6 +84,7 @@ module.exports = {
   },
 
   plugins: [
+    new ForkCheckerPlugin(),
     // TODO(datatypevoid): investigate the necessity of these two
     // following lines
     new webpack.HotModuleReplacementPlugin(),

@@ -158,7 +158,10 @@ module.exports = helpers.defaults({
       // TODO(mastertinner): enable mangling as soon as angular2 beta.4
       // is out
       // mangle: { screw_ie8 : true },//prod
-      mangle: false,
+      mangle: {
+        screw_ie8 : true,
+        except: ['RouterLink', 'NgFor', 'NgModel']
+      } // needed for uglify RouterLink problem
       compress : { screw_ie8 : true },//prod
       comments: false//prod
 

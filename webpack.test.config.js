@@ -6,8 +6,6 @@ var ProvidePlugin = require('webpack/lib/ProvidePlugin');
 var DefinePlugin  = require('webpack/lib/DefinePlugin');
 var ENV = process.env.ENV = process.env.NODE_ENV = 'test';
 
-var config = require('./config/config.json');
-
 /*
  * Config
  */

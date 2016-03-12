@@ -14,7 +14,7 @@ var config = require('./config/config.json');
 var metadata = {
   title: 'Angular 2 MEAN Webpack Starter Kit by @datatype_void',
   baseUrl: '/',
-  host: 'localhost',
+  host: '0.0.0.0',
   port: 8080,
   ENV: ENV,
   HMR: HMR

@@ -88,32 +88,26 @@ module.exports = {
           }
         },
         exclude: [
-          /\.(spec|e2e)\.ts$/,
-          helpers.root('node_modules')
+          /\.(spec|e2e)\.ts$/
         ]
       },
 
       // Support for *.json files.
       {
         test: /\.json$/,
-        loader: 'json-loader',
-        exclude: [ helpers.root('node_modules') ]
+        loader: 'json-loader'
       },
 
       // Support for CSS as raw text
       {
         test: /\.css$/,
-        loader: 'raw-loader',
-        exclude: [ helpers.root('node_modules') ]
+        loader: 'raw-loader'
       },
 
       // support for .html as raw text
       {
         test: /\.html$/,
-        loader: 'raw-loader',
-        exclude: [
-          helpers.root('src/index.html')
-        ]
+        loader: 'raw-loader'
       },
 
       // support for sass imports
@@ -121,8 +115,7 @@ module.exports = {
       // `require("!style!css!sass!./file.scss");`
       {
         test: /\.scss$/,
-        loader: 'style!css!autoprefixer-loader?browsers=last 2 versions!sass',
-        exclude: [ helpers.root('node_modules') ]
+        loader: 'style!css!autoprefixer-loader?browsers=last 2 versions!sass'
       }
 
     ],
@@ -154,10 +147,8 @@ module.exports = {
     new HtmlWebpackPlugin({ template: 'src/index.html' }),
     new DefinePlugin({
       // Environment helpers
-      'process.env': {
-        'ENV': JSON.stringify(metadata.ENV),
-        'NODE_ENV': JSON.stringify(metadata.ENV)
-      }
+      'ENV': JSON.stringify(metadata.ENV),
+      'HMR': HMR
     }),
     new UglifyJsPlugin({
       // to debug prod builds uncomment //debug lines and comment //prod lines

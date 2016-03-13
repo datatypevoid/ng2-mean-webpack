@@ -76,10 +76,8 @@ module.exports = {
   plugins: [
     new DefinePlugin({
       // Environment helpers
-      'process.env': {
-        'ENV': JSON.stringify(ENV),
-        'NODE_ENV': JSON.stringify(ENV)
-      }
+      'ENV': JSON.stringify(ENV),
+      'HMR': false
     })
   ],
   node: {

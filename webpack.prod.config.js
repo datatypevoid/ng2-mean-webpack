@@ -44,7 +44,7 @@ module.exports = {
   entry: {
     'polyfills':'./src/polyfills.ts',
     'vendor': './src/vendor.ts',
-    'main':'./src/main.ts' // our angular app
+    'app':'./src/main.ts' // our angular app
   },
 
   // Config for our build files
@@ -133,7 +133,7 @@ module.exports = {
     new DedupePlugin(),
     new OccurenceOrderPlugin(true),
     new CommonsChunkPlugin({
-      name: ['vendor', 'polyfills'],
+      name: ['app', 'vendor', 'polyfills'],
       filename: '[name].bundle.js',
       minChunks: Infinity
     }),
@@ -149,7 +149,7 @@ module.exports = {
     new DefinePlugin({
       // Environment helpers
       'ENV': JSON.stringify(metadata.ENV),
-      'HMR': HMR
+      'HMR': false
     }),
     new UglifyJsPlugin({
       // to debug prod builds uncomment //debug lines and comment //prod lines

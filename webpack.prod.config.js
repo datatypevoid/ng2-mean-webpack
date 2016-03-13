@@ -43,6 +43,7 @@ module.exports = {
 
   entry: {
     'polyfills':'./src/polyfills.ts',
+    'vendor': './src/vendor.ts',
     'main':'./src/main.ts' // our angular app
   },
 
@@ -132,9 +133,9 @@ module.exports = {
     new DedupePlugin(),
     new OccurenceOrderPlugin(true),
     new CommonsChunkPlugin({
-      name: 'polyfills',
-      filename: 'polyfills.[chunkhash].bundle.js',
-      chunks: Infinity
+      name: ['vendor', 'polyfills'],
+      filename: '[name].bundle.js',
+      minChunks: Infinity
     }),
     // static assets
     new CopyWebpackPlugin([

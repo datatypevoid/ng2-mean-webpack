@@ -32,6 +32,7 @@ module.exports = {
   // our angular app
   entry: {
     'polyfills': './src/polyfills.ts',
+    'vendor': './src/vendor.ts',
     'main': './src/main.ts'
   },
 
@@ -91,7 +92,7 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
 
     new webpack.optimize.OccurenceOrderPlugin(true),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'polyfills', filename: 'polyfills.bundle.js', minChunks: Infinity }),
+    new webpack.optimize.CommonsChunkPlugin({ name: ['vendor', 'polyfills'], filename: '[name].bundle.js', minChunks: Infinity }),
     // static assets
     new CopyWebpackPlugin([ { from: 'src/assets', to: 'assets' } ]),
     // generating html

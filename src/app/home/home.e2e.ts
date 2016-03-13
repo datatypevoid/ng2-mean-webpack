@@ -1,6 +1,3 @@
- /*
-  * TODO: ES5 for now until I make a webpack plugin for protractor
-  */
 describe('App', () => {
 
   beforeEach(() => {
@@ -11,7 +8,7 @@ describe('App', () => {
 
   it('should have a title', () => {
     let subject = browser.getTitle();
-    let result  = 'Angular2 Webpack Starter by @gdi2990 from @AngularClass';
+    let result  = 'Angular 2 MEAN Webpack Starter Kit by @datatype_void';
     expect(subject).toEqual(result);
   });
 

@@ -177,6 +177,13 @@ module.exports = {
       mangle: {
         screw_ie8 : true,
         except: [
+          'App',
+          'About',
+          'Contact',
+          'Home',
+          'Menu',
+          'Footer',
+          'XLarge',
           'RouterActive',
           'RouterLink',
           'RouterOutlet',

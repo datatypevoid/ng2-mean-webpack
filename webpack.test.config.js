@@ -58,7 +58,6 @@ module.exports = {
         test: /\.scss$/,
         loader: 'style!css!autoprefixer-loader?browsers=last 2 versions!sass',
         exclude: [ helpers.root('src/index.html') ] },
-      }
     ],
     postLoaders: [
       // instrument only testing sources with Istanbul

@@ -1,3 +1,17 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
+
+nav ul {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 60px;
+}
+nav li {
+  display: inline;
+}
+nav li.active {
+  background-color: lightgray;
+}

@@ -14,10 +14,9 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 import {provideStore} from '@ngrx/store';
 
 // Import all of the files necessary for our `recipes` component
-import {RecipeService} from './app/components/recipes/recipe.service';
-import {recipes} from './app/components/recipes/recipes.reducer';
-import {selectedRecipe}
-  from './app/components/recipes/selected-recipe.reducer';
+import {RecipeService} from './app/recipes/recipe.service';
+import {recipes} from './app/recipes/recipes.reducer';
+import {selectedRecipe} from './app/recipes/selected-recipe.reducer';
 
 /*
  * App Component

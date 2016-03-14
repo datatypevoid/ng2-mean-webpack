@@ -18,7 +18,7 @@ import {Store} from '@ngrx/store';
 
 import {RecipeService} from './recipe.service';
 import {Recipe} from './recipe.store';
-import {AppStore} from '../../app.store';
+import {AppStore} from '../app.store';
 
 import {Rating} from './rating.component';
 

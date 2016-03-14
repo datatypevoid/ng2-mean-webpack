@@ -13,7 +13,7 @@ import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 
 import {Recipe} from './recipe.store';
-import {AppStore} from '../../app.store';
+import {AppStore} from '../app.store';
 
 const HEADER = {
   headers: new Headers({

@@ -25,7 +25,7 @@ import {NgFor} from 'angular2/common';
 import {Todo} from './components/todo/todo.component';
 
 // Import Recipes component
-import {Recipes} from './components/recipes/recipes.component';
+import {Recipes} from './recipes/recipes.component';
 
 /*
  * App Component

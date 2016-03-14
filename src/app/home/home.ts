@@ -4,7 +4,7 @@ import {FORM_DIRECTIVES} from 'angular2/common';
 import {Title} from './services/title';
 import {XLarge} from './directives/x-large';
 
-import {Accordion, AccordionGroup} from '../components/accordion/accordion.component';
+import {Accordion, AccordionGroup} from '../shared/components/accordion/accordion.component';
 
 // Import NgFor directive
 import {NgFor} from 'angular2/common';

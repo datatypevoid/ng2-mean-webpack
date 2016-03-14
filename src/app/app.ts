@@ -22,7 +22,7 @@ import {Home} from './home/home';
 import {NgFor} from 'angular2/common';
 
 // Import Todo component
-import {Todo} from './components/todo/todo.component';
+import {Todo} from './todo/todo.component';
 
 // Import Recipes component
 import {Recipes} from './recipes/recipes.component';

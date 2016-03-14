@@ -25,19 +25,7 @@ import {RecipeList} from './recipe-list.component';
 @Component({
   selector: 'recipes',
   providers: [],
-  template: `
-    <div>
-      <recipe-list [recipes]="recipes | async"
-        (selected)="selectRecipe($event)" (deleted)="deleteRecipe($event)">
-      </recipe-list>
-    </div>
-    <div>
-      <recipe-detail
-        (saved)="saveRecipe($event)" (cancelled)="resetRecipe($event)"
-        [recipe]="selectedRecipe | async">Pick your Fancy:</recipe-detail>
-
-    </div>
-  `,
+  template: require('./recipes.html'),
   directives: [RecipeList, RecipeDetails],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

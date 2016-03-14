@@ -14,17 +14,7 @@ import {Component,
 
 @Component({
   selector: 'rating',
-  template: `
-    <span tabindex="0">
-      <template ngFor [ngForOf]="range" #index="index">
-        <span class="sr-only">({{ index < rate ? '*' : ' ' }})</span>
-        <i class="glyphicon"
-          [ngClass]="index < rate ? 'glyphicon-star' : 'glyphicon-star-empty'"
-          (click)="update(index + 1)">
-        </i>
-      </template>
-    </span>
-  `,
+  template: require('./rating.html'),
   directives: []
 })
 

@@ -24,46 +24,7 @@ import {Rating} from './rating.component';
 
 @Component({
   selector: 'recipe-list',
-  template: `
-  <div *ngFor="#recipe of recipes" (click)="selected.emit(recipe)"
-    class="recipe-card">
-    <div>
-      <h2>{{recipe.title}}</h2>
-    </div>
-    <ul class="list-inline">
-      <li *ngFor="#tag of recipe.tags">
-        <span class="label label-warning">
-          #{{tag.name}}
-        </span>
-      </li>
-    </ul>
-    <div>
-      <rating [interactive]="false" [rate]="recipe.rating"></rating>
-      {{recipe.rating}}
-    </div>
-    <div>
-      {{recipe.creator}}
-    </div>
-    <div>
-      {{recipe.description}}
-    </div>
-    <ul>
-      <li *ngFor="#ingredient of recipe.ingredients">
-        {{ ingredient.amount }} {{ ingredient.unit}} {{ ingredient.name }}
-      </li>
-    </ul>
-    <ol>
-      <li *ngFor="#direction of recipe.directions">
-        {{ direction.step }}
-      </li>
-    </ol>
-    <div>
-      <button (click)="deleted.emit(recipe); $event.stopPropagation();">
-        <i>close</i>
-      </button>
-    </div>
-  </div>
-  `,
+  template: require('./recipe-list.html'),
   directives: [Rating]
 })
 export class RecipeList {

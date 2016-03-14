@@ -1,0 +1,11 @@
+<div>
+  <recipe-list [recipes]="recipes | async"
+    (selected)="selectRecipe($event)" (deleted)="deleteRecipe($event)">
+  </recipe-list>
+</div>
+<div>
+  <recipe-detail
+    (saved)="saveRecipe($event)" (cancelled)="resetRecipe($event)"
+    [recipe]="selectedRecipe | async">Pick your Fancy:</recipe-detail>
+
+</div>

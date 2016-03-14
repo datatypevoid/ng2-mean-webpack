@@ -24,7 +24,7 @@ import {selectedRecipe}
  * our top level component that holds all of our components
  */
 import {App} from './app/app';
-import {RouterActive} from './app/directives/router-active';
+import {RouterActive} from './app/shared/directives/router-active';
 
 /*
  * Application Providers/Directives/Pipes
@@ -73,7 +73,7 @@ export function main() {
 
          ngCore.provide(ngCore.PLATFORM_PIPES,
              {useValue: APPLICATION_PIPES, multi: true}),
-             
+
          // These are the primary consumers of our app store
          RecipeService,
          // Inititialize app store available to entire app

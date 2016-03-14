@@ -1,7 +1,7 @@
 {
   "name": "ng2-mean-webpack",
-  "version": "0.1.0",
-  "description": "An MEAN stack development kit featuring Angular 2 (Router, Http, Forms, Services, Tests, E2E, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack by Da5id",
+  "version": "1.0.0",
+  "description": "A MEAN stack development kit featuring Angular 2 (Router, Http, Forms, Services, Tests, E2E, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack by Da5id",
   "author": "David Newman <blackshuriken@hotmail.com>",
   "homepage": "https://github.com/datatypevoid/ng2-mean-webpack",
   "license": "MIT",

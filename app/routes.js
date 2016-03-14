@@ -17,72 +17,67 @@ import authRoutes from './routes/_authentication.router.js';
 // Load our API routes for the `todo` component
 import todoRoutes from './routes/_todo.router.js';
 
-// Load our API routes for the `item` component
-import itemRoutes from './routes/_item.router.js';
-
 // Load our API routes for the `recipe` component
 import recipeRoutes from './routes/_recipe.router.js';
 
 export default (app, router, passport) => {
 
-	// ### Express Middlware to use for all requests
-	router.use((req, res, next) => {
+  // ### Express Middlware to use for all requests
+  router.use((req, res, next) => {
 
-		console.log('I sense a disturbance in the force...'); // DEBUG
+    console.log('I sense a disturbance in the force...'); // DEBUG
 
-		// Make sure we go to the next routes and don't stop here...
-		next();
-	});
+    // Make sure we go to the next routes and don't stop here...
+    next();
+  });
 
-	// Define a middleware function to be used for all secured routes
-	let auth = (req, res, next) => {
+  // Define a middleware function to be used for all secured routes
+  let auth = (req, res, next) => {
 
-		if (!req.isAuthenticated())
-			res.send(401);
+    if (!req.isAuthenticated())
+      res.send(401);
 
-		else
-			next();
-	};
+    else
+      next();
+  };
 
-	// Define a middleware function to be used for all secured administration
-	// routes
-	let admin = (req, res, next) => {
+  // Define a middleware function to be used for all secured administration
+  // routes
+  let admin = (req, res, next) => {
 
-		if (!req.isAuthenticated() || req.user.role !== 'admin')
-			res.send(401);
+    if (!req.isAuthenticated() || req.user.role !== 'admin')
+      res.send(401);
 
-		else
-			next();
-	};
+    else
+      next();
+  };
 
-	// ### Server Routes
+  // ### Server Routes
 
-	// Handle things like API calls,
+  // Handle things like API calls,
 
-	// #### Authentication routes
+  // #### Authentication routes
 
-	// Pass in our Express app and Router.
-	// Also pass in auth & admin middleware and Passport instance
-	authRoutes(app, router, passport, auth, admin);
+  // Pass in our Express app and Router.
+  // Also pass in auth & admin middleware and Passport instance
+  authRoutes(app, router, passport, auth, admin);
 
-	// #### RESTful API Routes
+  // #### RESTful API Routes
 
-	// Pass in our Express app and Router
-	todoRoutes(app, router);
-
-	itemRoutes(app, router);
+  // Pass in our Express app and Router
+  todoRoutes(app, router);
 
 	recipeRoutes(app, router);
 
 	// All of our routes will be prefixed with /api
 	app.use('/api', router);
 
-	// ### Frontend Routes
+  // ### Frontend Routes
 
-	// Route to handle all Angular requests
-	app.get('*', (req, res) => {
+  // Route to handle all Angular requests
+  app.get('*', (req, res) => {
 
-		// Load our src/app.html file
-		res.sendfile('./dist/index.html');
-	});
+    // Load our src/app.html file
+    res.sendfile('./dist/index.html');
+  });
 };

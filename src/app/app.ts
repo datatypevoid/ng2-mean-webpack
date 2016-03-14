@@ -14,10 +14,8 @@
  * Angular 2 decorators and services
  */
 import {Component} from 'angular2/core';
-import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
-import {FORM_PROVIDERS} from 'angular2/common';
+import {RouteConfig, Router} from 'angular2/router';
 
-import {RouterActive} from './directives/router-active';
 import {Home} from './home/home';
 
 // Import NgFor directive
@@ -35,10 +33,8 @@ import {Recipes} from './components/recipes/recipes.component';
  */
 @Component({
   selector: 'app',
-  providers: [ ...FORM_PROVIDERS ],
-  directives: [ ...ROUTER_DIRECTIVES,
-                RouterActive,
-                Todo,
+  providers: [  ],
+  directives: [ Todo,
                 NgFor],
   pipes: [],
   // Load our main `Sass` file into our `app` `component`
@@ -80,16 +76,13 @@ import {Recipes} from './components/recipes/recipes.component';
   `
 })
 @RouteConfig([
-  { path: '/', component: Home, name: 'Index' },
-  { path: '/home', component: Home, name: 'Home' },
+  { path: '/', name: 'Index', component: Home, useAsDefault: true },
+  { path: '/home',  name: 'Home',  component: Home },
   { path: '/todo', component: Todo, name: 'Todo' },
   { path: '/redux', component: Recipes, name: 'Recipes' },
   // Async load a component using Webpack's require with
   // es6-promise-loader and webpack `require`
-  { path: '/about',
-    loader:
-      () => require('es6-promise!./about/about')('About'), name: 'About' },
-  { path: '/**', redirectTo: ['Index'] }
+  { path: '/about', name: 'About', loader: () => require('es6-promise!./about/about')('About') },
 ])
 export class App {
   angularLogo = 'assets/img/angular-logo.png';

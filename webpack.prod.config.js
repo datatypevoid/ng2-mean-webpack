@@ -16,12 +16,15 @@ var CompressionPlugin = require('compression-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var WebpackMd5Hash    = require('webpack-md5-hash');
+var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlug
 var ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 var HOST = process.env.HOST || 'localhost';
 var PORT = process.env.PORT || 8080;
 
+var config = require('./config/config.json');
+
 var metadata = {
-  title: 'Angular2 Webpack Starter by @gdi2990 from @AngularClass',
+  title: 'Angular 2 MEAN Webpack Starter Kit by @datatype_void',
   baseUrl: '/',
   host: HOST,
   port: PORT,
@@ -31,17 +34,17 @@ var metadata = {
 /*
  * Config
  */
-module.exports = helpers.validate({
+module.exports = {
   // static data for index.html
   metadata: metadata,
 
   devtool: 'source-map',
-  cache: false,
   debug: false,
 
   entry: {
     'polyfills':'./src/polyfills.ts',
-    'main':'./src/main.ts' // our angular app
+    'vendor': './src/vendor.ts',
+    'app':'./src/main.ts' // our angular app
   },
 
   // Config for our build files
@@ -53,9 +56,7 @@ module.exports = helpers.validate({
   },
 
   resolve: {
-    cache: false,
-    // ensure loader extensions match
-    ['', '.ts','.js']
+    extensions: ['', '.ts', '.js', '.scss']
   },
 
   module: {
@@ -80,12 +81,11 @@ module.exports = helpers.validate({
       // Support for .ts files.
       {
         test: /\.ts$/,
-        loader: 'ts-loader',
+        loader: 'awesome-typescript-loader',
         query: {
           // remove TypeScript helpers to be injected below by DefinePlugin
           'compilerOptions': {
-            'removeComments': true,
-            'noEmitHelpers': true,
+            'removeComments': true
           }
         },
         exclude: [
@@ -94,28 +94,48 @@ module.exports = helpers.validate({
       },
 
       // Support for *.json files.
-      { test: /\.json$/,  loader: 'json-loader' },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      },
 
       // Support for CSS as raw text
-      { test: /\.css$/,   loader: 'raw-loader' },
+      {
+        test: /\.css$/,
+        loader: 'raw-loader'
+      },
 
       // support for .html as raw text
-      { test: /\.html$/,  loader: 'raw-loader',
-        exclude: [ helpers.root('src/index.html') ]
+      {
+        test: /\.html$/,
+        loader: 'raw-loader'
+      },
+
+      // support for sass imports
+      // add CSS rules to your document:
+      // `require("!style!css!sass!./file.scss");`
+      {
+        test: /\.scss$/,
+        loader: 'style!css!autoprefixer-loader?browsers=last 2 versions!sass'
       }
 
-      // if you add a loader include the file extension
+    ],
+    noParse: [
+      helpers.root('zone.js', 'dist'),
+      helpers.root('angular2', 'bundles')
     ]
+
   },
 
   plugins: [
+    new ForkCheckerPlugin(),
     new WebpackMd5Hash(),
     new DedupePlugin(),
     new OccurenceOrderPlugin(true),
     new CommonsChunkPlugin({
-      name: 'polyfills',
-      filename: 'polyfills.[chunkhash].bundle.js',
-      chunks: Infinity
+      name: ['app', 'vendor', 'polyfills'],
+      filename: '[name].bundle.js',
+      minChunks: Infinity
     }),
     // static assets
     new CopyWebpackPlugin([
@@ -125,23 +145,11 @@ module.exports = helpers.validate({
       }
     ]),
     // generating html
-    new HtmlWebpackPlugin({
-      template: 'src/index.html'
-    }),
+    new HtmlWebpackPlugin({ template: 'src/index.html' }),
     new DefinePlugin({
       // Environment helpers
-      'process.env': {
-        'ENV': JSON.stringify(metadata.ENV),
-        'NODE_ENV': JSON.stringify(metadata.ENV)
-      }
-    }),
-    new ProvidePlugin({
-      // TypeScript helpers
-      '__metadata': 'ts-helper/metadata',
-      '__decorate': 'ts-helper/decorate',
-      '__awaiter': 'ts-helper/awaiter',
-      '__extends': 'ts-helper/extends',
-      '__param': 'ts-helper/param'
+      'ENV': JSON.stringify(metadata.ENV),
+      'HMR': false
     }),
     new UglifyJsPlugin({
       // to debug prod builds uncomment //debug lines and comment //prod lines
@@ -155,12 +163,61 @@ module.exports = helpers.validate({
       // comments: true,//debug
 
       beautify: false,//prod
-      // disable mangling because of a bug in angular2 beta.1, beta.2 and
-      // beta.3
-      // TODO(mastertinner): enable mangling as soon as angular2 beta.4
-      // is out
+      // disable mangling because of a bug in angular2 beta.1, beta.2 and beta.3
+      // TODO(mastertinner): enable mangling as soon as angular2 beta.4 is out
       // mangle: { screw_ie8 : true },//prod
-      mangle: false,
+      mangle: {
+        screw_ie8 : true,
+        except: [
+          'App',
+          'About',
+          'Contact',
+          'Home',
+          'Menu',
+          'Footer',
+          'XLarge',
+          'RouterActive',
+          'RouterLink',
+          'RouterOutlet',
+          'NgFor',
+          'NgIf',
+          'NgClass',
+          'NgSwitch',
+          'NgStyle',
+          'NgSwitchDefault',
+          'NgControl',
+          'NgControlName',
+          'NgControlGroup',
+          'NgFormControl',
+          'NgModel',
+          'NgFormModel',
+          'NgForm',
+          'NgSelectOption',
+          'DefaultValueAccessor',
+          'NumberValueAccessor',
+          'CheckboxControlValueAccessor',
+          'SelectControlValueAccessor',
+          'RadioControlValueAccessor',
+          'NgControlStatus',
+          'RequiredValidator',
+          'MinLengthValidator',
+          'MaxLengthValidator',
+          'PatternValidator',
+          'AsyncPipe',
+          'DatePipe',
+          'JsonPipe',
+          'NumberPipe',
+          'DecimalPipe',
+          'PercentPipe',
+          'CurrencyPipe',
+          'LowerCasePipe',
+          'UpperCasePipe',
+          'SlicePipe',
+          'ReplacePipe',
+          'I18nPluralPipe',
+          'I18nSelectPipe'
+        ] // needed for uglify RouterLink problem
+      },// prod
       compress : { screw_ie8 : true },//prod
       comments: false//prod
 
@@ -175,10 +232,9 @@ module.exports = helpers.validate({
   // Other module loader config
   tslint: {
     emitErrors: true,
-    failOnHint: false, //true, : https://github.com/AngularClass/angular2-webpack-starter/issues/374
+    failOnHint: true,
     resourcePath: 'src',
   },
-
   htmlLoader: {
     minimize: true,
     removeAttributeQuotes: false,
@@ -187,8 +243,6 @@ module.exports = helpers.validate({
     customAttrAssign: [ /\)?\]?=/ ]
   },
   // don't use devServer for production
-
-  // we need this due to problems with es6-shim
   node: {
     global: 'window',
     progress: false,
@@ -198,5 +252,3 @@ module.exports = helpers.validate({
     setImmediate: false
   }
 };
-
-});

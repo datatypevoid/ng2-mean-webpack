@@ -7,13 +7,13 @@
 
 // *server.conf.js*
 
-//	This is the file where we will:
-//	- Configure our application
-//	- Connect to our database
-//	- Create our Mongoose models
-//	- Define routes for our RESTful API
-//	- Define routes for our frontend Angular application
-//	- Set the app to listen on a port so we can view it in our browser
+//  This is the file where we will:
+//  - Configure our application
+//  - Connect to our database
+//  - Create our Mongoose models
+//  - Define routes for our RESTful API
+//  - Define routes for our frontend Angular application
+//  - Set the app to listen on a port so we can view it in our browser
 
 // # Node Env Variables
 
@@ -73,9 +73,9 @@ import passportConf from './config/passport.conf.js';
 passportConf(passport);
 
 if (process.env.NODE_ENV === 'development' ||
-		process.env.NODE_ENV === 'test')
-	// Log every request to the console
-	app.use(morgan('dev'));
+    process.env.NODE_ENV === 'test')
+  // Log every request to the console
+  app.use(morgan('dev'));
 
 // Read cookies (needed for authentication)
 app.use(cookieParser());
@@ -99,11 +99,11 @@ app.use(express.static(__dirname + '/dist'));
 // Session secret
 app.use(session({
 
-	secret : process.env.SESSION_SECRET,
+  secret : process.env.SESSION_SECRET,
 
-	resave : true,
+  resave : true,
 
-	saveUninitialized : true
+  saveUninitialized : true
 }));
 
 app.use(passport.initialize());

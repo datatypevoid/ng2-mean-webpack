@@ -70,4 +70,8 @@ npm-debug.log
 
 # IDE #
 .idea/
+
+# Temporary Files #
+.tmp
+.sass-cache
 *.swp

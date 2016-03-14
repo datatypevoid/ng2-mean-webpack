@@ -17,60 +17,19 @@ import {NgFor} from 'angular2/common';
     providers: [...HTTP_PROVIDERS, TodoService]
 })
 @View({
-    template: `
-      <div class="container">
-
-        <!-- HEADER AND TODO COUNT -->
-        <div class="jumbotron text-center">
-            <h1>Todo <span class="label label-info">{{todos.length}}</span></h1>
-        </div>
-
-        <!-- TODO LIST -->
-        <div id="todo-list" class="row">
-            <div class="col-sm-4 col-sm-offset-4">
-
-                <!-- LOOP OVER THE TODOS IN $scope.todos -->
-                <div class="checkbox" *ngFor="#todo of todos">
-                    <label>
-                        <input type="checkbox" (click)="deleteTodo(todo._id)" bind-checked="false">
-                        {{ todo.text }}
-                    </label>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- FORM TO CREATE TODOS -->
-        <div id="todo-form" class="row">
-            <div class="col-sm-8 col-sm-offset-2 text-center">
-                <form>
-                    <div class="form-group">
-
-                        <!-- BIND THIS VALUE TO todoData.text IN ANGULAR -->
-                        <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" [(ngModel)]="todoData.text" required>
-                    </div>
-
-                    <!-- createToDo() WILL CREATE NEW TODOS -->
-                    <button type="submit" class="btn btn-primary btn-lg"
-                      (click)="createTodo()">Add</button>
-                </form>
-            </div>
-        </div>
-
-    </div>
-    `
+    template: require('./todo.html'),
 })
 export class Todo {
-  private todos: Array<Todo> = [];
-  // Set our default values
-  //todos = [];
+
   // Initialize our `todoData.text` to an empty `string`
   todoData = {
     text: ''
   };
 
-  constructor(public todoService:TodoService) {
-    console.log('Todo constructor go!')
+  private todos: Array<Todo> = [];
+
+  constructor(public todoService: TodoService) {
+    console.log('Todo constructor go!');
 
       //this.todos = [];
       todoService.getAll()
@@ -81,7 +40,7 @@ export class Todo {
             this.todos = res;
             // Reset `todo` input
             this.todoData.text = '';
-        })
+        });
   }
 
   createTodo() {
@@ -93,7 +52,7 @@ export class Todo {
             this.todos = res;
             // Reset `todo` input
             this.todoData.text = '';
-        })
+        });
   }
 
   deleteTodo(id) {
@@ -103,6 +62,6 @@ export class Todo {
 
           // Populate our `todo` array with the `response` data
           this.todos = res;
-      })
+      });
   }
 }

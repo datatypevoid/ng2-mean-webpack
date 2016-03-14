@@ -1,5 +1,5 @@
-// Import our `Recipe` interface
-import {Recipe} from './components/recipes/recipes.reducer';
+// Import our `Recipe` store
+import {Recipe} from './components/recipes/recipe.store';
 
 // We are dealing with a single object that has:
 //   * An `recipes` collection

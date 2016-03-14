@@ -12,7 +12,7 @@ import {Store} from '@ngrx/store';
 import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 
-import {Recipe} from './recipes.reducer';
+import {Recipe} from './recipe.store';
 import {AppStore} from '../../app.store';
 
 const HEADER = {

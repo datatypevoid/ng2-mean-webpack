@@ -17,7 +17,7 @@ import {Observable} from 'rxjs/Observable';
 import {Store} from '@ngrx/store';
 import {AppStore} from '../../app.store';
 
-import {Recipe} from './recipes.reducer.ts';
+import {Recipe} from './recipe.store';
 import {RecipeService} from './recipe.service';
 import {RecipeDetails} from './recipe-details.component';
 import {RecipeList} from './recipe-list.component';

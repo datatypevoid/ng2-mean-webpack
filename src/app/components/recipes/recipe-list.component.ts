@@ -17,7 +17,7 @@ import {Observable} from 'rxjs/Observable';
 import {Store} from '@ngrx/store';
 
 import {RecipeService} from './recipe.service';
-import {Recipe} from './recipes.reducer';
+import {Recipe} from './recipe.store';
 import {AppStore} from '../../app.store';
 
 import {Rating} from './rating.component';

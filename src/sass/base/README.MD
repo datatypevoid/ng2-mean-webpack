@@ -1,8 +1,5 @@
-## Usage
+# Base
 
-The `base/` folder holds all boilerplate code for a project. This is where
-would would stick your reset, typography rules, animation `@keyframe`
-definitions, among other files, depending on the specifics of the project. Also consider a stylesheet for standard styles for commonly used HTML
-elements called `_base.scss`.
+The `base/` folder holds what we might call the boilerplate code for the project. In there, you might find some typographic rules, and probably a stylesheet (that I’m used to calling `_base.scss`), defining some standard styles for commonly used HTML elements.
 
-Reference: http://sass-guidelin.es/#the-7-1-pattern
+Reference: [Sass Guidelines](http://sass-guidelin.es/) > [Architecture](http://sass-guidelin.es/#architecture) > [Base folder](http://sass-guidelin.es/#base-folder)

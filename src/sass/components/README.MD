@@ -1,8 +1,5 @@
-## Usage
+# Components
 
-The `components/` folder is meant to contain specific
-modules for components such as sliders, loaders, widgets,
-et cetera. There are regularly _A LOT_ of files in this
-directory.
+For small components, there is the `components/` folder. While `layout/` is macro (defining the global wireframe), `components/` is more focused on widgets. It contains all kind of specific modules like a slider, a loader, a widget, and basically anything along those lines. There are usually a lot of files in components/ since the whole site/application should be mostly composed of tiny modules.
 
-Reference: http://sass-guidelin.es/#the-7-1-pattern
+Reference: [Sass Guidelines](http://sass-guidelin.es/) > [Architecture](http://sass-guidelin.es/#architecture) > [Components folder](http://sass-guidelin.es/#components-folder)

@@ -1,31 +1,39 @@
-// ```
-// main.scss
-// (c) 2016 David Newman
-// blackshuriken@hotmail.com
-// main.scss may be freely distributed under the MIT license
-// ```
+@charset 'UTF-8';
 
-// */public/sass/main.scss*
+// 1. Configuration and helpers
+@import
+  'abstracts/variables',
+  'abstracts/functions',
+  'abstracts/mixins';
 
-// ##SCSS Import
+// 2. Vendors
+@import
+  'vendor/normalize';
 
-// This Sass file pulls in all partials for both global
-// variables as well as component styles for use with
-// our Angular component directives
+// 3. Base stuff
+@import
+  'base/base',
+  'base/fonts',
+  'base/typography',
+  'base/helpers';
 
-// Reference:
-// http://sass-guidelin.es/#the-7-1-pattern
-// https://scotch.io/tutorials/aesthetic-sass-1-architecture-and-style-organization
+// 4. Layout-related sections
+@import
+  'layout/header',
+  'layout/footer';
 
-// ### Sass Module Partials
+// 5. Components
+@import
+  'components/button';
 
-@import 'base/module';
-@import 'utils/module';
-@import 'vendors/module';
-@import 'layout/module';
-@import 'components/module';
-@import 'pages/module';
-@import 'themes/module';
+// 6. Page-specific styles
+@import
+  'pages/home';
 
-// Import _shame partial
-@import 'shame';
+// 7. Themes
+@import
+  'themes/default';
+
+// 8. Shame
+@import
+  'shame';

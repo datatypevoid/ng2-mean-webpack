@@ -7,26 +7,9 @@ import {Accordion} from './accordion.component';
 
 @Component({
   selector: 'accordion-group, [accordion-group]',
-  inputs: ['heading', 'isOpen']
-})
-@View({
-        template: `
-
-          <div class="panel panel-default" [ngClass]="{'panel-open': isOpen}">
-            <div class="panel-heading" (click)="toggleOpen($event)">
-              <h4 class="panel-title">
-                <a href tabindex="0"><span>{{heading}}</span></a>
-              </h4>
-            </div>
-            <div class="panel-collapse" [hidden]="!isOpen">
-              <div class="panel-body">
-                <ng-content></ng-content>
-              </div>
-            </div>
-          </div>
-
-        `,
-  directives: [NgClass]
+  inputs: ['heading', 'isOpen'],
+  directives: [NgClass],
+  template: require('./accordion-group.html')
 })
 export class AccordionGroup {
   private _isOpen: boolean = false;

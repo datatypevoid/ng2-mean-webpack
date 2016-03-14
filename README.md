@@ -1,8 +1,11 @@
 [![Dependency Status](https://david-dm.org/datatypevoid/ng2-mean-webpack.svg)](https://david-dm.org/datatypevoid/ng2-mean-webpack) [![Build Status](https://travis-ci.org/datatypevoid/ng2-mean-webpack.svg?branch=master)](https://travis-ci.org/datatypevoid/ng2-mean-webpack) [![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/datatypevoid/ng2-mean-webpack) [![Issue Stats](http://issuestats.com/github/datatypevoid/ng2-mean-webpack/badge/pr?style=flat)](http://issuestats.com/github/datatypevoid/ng2-mean-webpack) [![Issue Stats](http://issuestats.com/github/datatypevoid/ng2-mean-webpack/badge/issue?style=flat)](http://issuestats.com/github/datatypevoid/ng2-mean-webpack) [![Stack Share](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](stackshare.io/datatypevoid/angular-2-mean-webpack-starter)
+<p align="center">
+  <a href="http://www.davidniciforovic.com" target="_blank">
+    <img src="https://cloud.githubusercontent.com/assets/10481547/13732046/5ba42ab0-e94f-11e5-9962-ab04cbd6779f.png" alt="MEAN with NG2 and Webpack" />
+  </a>
+</p>
 
-# MEAN Stack Development Starter
-
-[![Join Slack](https://img.shields.io/badge/slack-join-brightgreen.svg)](http://www.davidniciforovic.com/wp-login.php?action=slack-invitation)
+# MEAN Stack Development Starter [![Join Slack](https://img.shields.io/badge/slack-join-brightgreen.svg)](http://www.davidniciforovic.com/wp-login.php?action=slack-invitation)
 
 > A MEAN stack development kit featuring [Angular 2](https://angular.io) ([Router](https://angular.io/docs/js/latest/api/router/), [Forms](https://angular.io/docs/js/latest/api/forms/), [Http](https://angular.io/docs/js/latest/api/http/), [Services](https://gist.github.com/gdi2290/634101fec1671ee12b3e#_follow_@AngularClass_on_twitter), [Tests](https://angular.io/docs/js/latest/api/test/), [E2E](https://angular.github.io/protractor/#/faq#what-s-the-difference-between-karma-and-protractor-when-do-i-use-which-)), [Express](http://expressjs.com/), [MongoDB](https://www.mongodb.org/) (complete with [Mongoose](https://www.mongoosejs.org/)), [Node](https://www.nodejs.org/), [PassportJS](https://www.passportjs.org/), [Socket.IO](https://www.socket.io/), [Karma](https://karma-runner.github.io/), [Protractor](https://angular.github.io/protractor/), [Jasmine](https://github.com/jasmine/jasmine), [Istanbul](https://github.com/gotwarlost/istanbul), [TypeScript](http://www.typescriptlang.org/), [Typings](https://github.com/typings/typings), [Sass](https://sass-lang.com), [Docco](https://jashkenas.github.io/docco/), [TsLint](http://palantir.github.io/tslint/), [Ng2Lint](https://github.com/mgechev/ng2lint), [Hot Module Replacement](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html), and [Webpack](http://webpack.github.io/), as well as ES6/ES7 support for the back-end by [datatype_void](https://twitter.com/datatype_void).
 

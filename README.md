@@ -143,6 +143,12 @@ ng2-mean-webpack/
  │   ├──polyfills.ts                * our polyfills file
  │   │
  │   ├──app/                        * WebApp: folder
+ │   │   ├──todo/                   * an example component directory
+ │   │   │   ├──todo.component.ts   * a simple Angular 2 component
+ │   │   │   ├──todo.e2e.ts         *  simple test of components in todo.component.ts
+ │   │   │   ├──todo.spec.ts        * a simple end-to-end test for /todo
+ │   │   │   ├──todo.html           * template for our component
+ │   │   │   └──todo.service.ts     * Angular 2 service linking to our API
  │   │   ├──app.spec.ts             * a simple test of components in app.ts
  │   │   ├──app.e2e.ts              * a simple end-to-end test for /
  │   │   └──app.ts                  * App.ts: a simple version of our App component components
@@ -200,7 +206,6 @@ ng2-mean-webpack/
  │       │   ├──_module.scss        * Load all partials from this directory into single partial
  │       │   └── …                  * Etc.
  │       ├──vendors/
- │       │   ├──vendors-extensions  * Bootstrap
  │       │   ├──_bootstrap.scss     * Bootstrap
  │       │   ├──_jquery-ui.scss     * jQuery UI
  │       │   ├──_module.scss        * Load all partials from this directory into single partial

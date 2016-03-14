@@ -5,18 +5,10 @@
 // recipes.reducer.js may be freely distributed under the MIT license
 // ```
 
-// # Redux interface/reducer for `recipes`
+// ** Import our `recipe` store
+import {Recipe} from './recipe.store';
 
-export interface Recipe {
-  _id: number;
-  tags: Array<Object>;
-  title: string;
-  description: string;
-  rating: number;
-  creator: string;
-  ingredients: Array<Object>;
-  directions: Array<Object>;
-};
+// # Redux reducer for `recipes`
 
 // A traditional `reducer` is a function which takes a `state`
 // object and an action to perform.

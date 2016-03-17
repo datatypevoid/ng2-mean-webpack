@@ -53,7 +53,7 @@ git clone --depth 1 https://github.com/datatypevoid/ng2-mean-webpack.git
 cd ng2-mean-webpack
 
 # add required global libraries
- npm install typings webpack-dev-server -g
+ npm install -g typings webpack-dev-server concurrently
 
 # install the repo with npm
 npm install

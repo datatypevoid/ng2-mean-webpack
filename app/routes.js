@@ -22,7 +22,7 @@ import recipeRoutes from './routes/_recipe.router.js';
 
 export default (app, router, passport) => {
 
-  // ### Express Middlware to use for all requests
+  // ### Express middleware to use for all requests
   router.use((req, res, next) => {
 
     console.log('I sense a disturbance in the force...'); // DEBUG
